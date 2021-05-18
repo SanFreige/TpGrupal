@@ -1,4 +1,4 @@
-package unla.prueba;
+package com.unla.grupo12;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
