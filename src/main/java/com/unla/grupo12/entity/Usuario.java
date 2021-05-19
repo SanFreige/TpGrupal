@@ -1,4 +1,6 @@
-package com.unla.grupo12.entities;
+package com.unla.grupo12.entity;
+
+import lombok.Data;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,35 +10,19 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="user")
-public class User {
-	
+@Data
+@Table(name = "usuario")
+public class Usuario {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
-	
-	@Column(name="nombre")
+	private Long id;
 	private String nombre;
-	
-	@Column(name="apellido")
 	private String apellido;
-	
-	@Column(name="tipoDocumento")
+	private Long nroDocumento;
 	private String tipoDocumento;
-	
-	@Column(name="email")
 	private String email;
-	
-	@Column(name="username")
-	private String username;
-	
-	@Column(name="password")
-	private String password;
-	
-	
-	
-	
-	
-	
-
+	private String usuario;
+	private String contraseña;
+	private int idPerfil;
 }

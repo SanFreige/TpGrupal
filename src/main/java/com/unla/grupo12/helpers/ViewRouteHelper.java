@@ -9,8 +9,4 @@ public class ViewRouteHelper {
 	public final static String SERVICES = "home/services";
 	public final static String CONTACT = "home/contact";
 	
-	
-	
-	
-	
 }
