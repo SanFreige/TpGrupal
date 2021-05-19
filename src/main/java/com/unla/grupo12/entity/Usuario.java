@@ -2,12 +2,7 @@ package com.unla.grupo12.entity;
 
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Data
@@ -23,6 +18,7 @@ public class Usuario {
 	private String tipoDocumento;
 	private String email;
 	private String usuario;
-	private String contraseña;
-	private int idPerfil;
+	private String clave;
+	@ManyToOne
+	private Perfil perfil;
 }

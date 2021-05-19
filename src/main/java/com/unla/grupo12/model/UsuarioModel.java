@@ -1,6 +1,7 @@
 package com.unla.grupo12.model;
 
 
+import com.unla.grupo12.entity.Perfil;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,8 +18,8 @@ public class UsuarioModel {
   private String tipoDocumento;
   private String email;
   private String usuario;
-  private String contraseña;
-  private int idPerfil;
+  private String clave;
+  private Perfil Perfil;
 
 }
 
