@@ -2,6 +2,8 @@ package com.unla.grupo12.entity;
 
 import lombok.Data;
 
+import java.util.Set;
+
 import javax.persistence.*;
 
 @Entity
@@ -19,6 +21,96 @@ public class Usuario {
 	private String email;
 	private String usuario;
 	private String clave;
-	@ManyToOne
-	private Perfil perfil;
+	private boolean activo;
+	
+	@OneToMany(cascade=CascadeType.ALL)
+	@JoinColumn(name="id")
+	private Set<Perfil> perfiles;
+	
+	public Usuario() {}
+	
+	public Usuario(Long id, String nombre, String apellido, Long nroDocumento, String tipoDocumento, String email,
+			String usuario, String clave, boolean activo){
+		super();
+		this.id = id;
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.nroDocumento = nroDocumento;
+		this.tipoDocumento = tipoDocumento;
+		this.email = email;
+		this.usuario = usuario;
+		this.clave = clave;
+		this.activo = activo;
+	}
+	
+	
+	
+	
+	
+	public Long getId() {
+		return id;
+	}
+	protected void setId(Long id) {
+		this.id = id;
+	}
+	public String getNombre() {
+		return nombre;
+	}
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	public String getApellido() {
+		return apellido;
+	}
+	public void setApellido(String apellido) {
+		this.apellido = apellido;
+	}
+	public Long getNroDocumento() {
+		return nroDocumento;
+	}
+	public void setNroDocumento(Long nroDocumento) {
+		this.nroDocumento = nroDocumento;
+	}
+	public String getTipoDocumento() {
+		return tipoDocumento;
+	}
+	public void setTipoDocumento(String tipoDocumento) {
+		this.tipoDocumento = tipoDocumento;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getUsuario() {
+		return usuario;
+	}
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
+	}
+	public String getClave() {
+		return clave;
+	}
+	public void setClave(String clave) {
+		this.clave = clave;
+	}
+	public boolean isActivo() {
+		return activo;
+	}
+	public void setActivo(boolean activo) {
+		this.activo = activo;
+	}
+
+	public Set<Perfil> getPerfiles() {
+		return perfiles;
+	}
+
+	public void setPerfiles(Set<Perfil> perfiles) {
+		this.perfiles = perfiles;
+	}
+
+	
+	
+	
 }

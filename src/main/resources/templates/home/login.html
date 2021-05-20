@@ -36,7 +36,7 @@
 					<div class="control-group form-group">
 						<div class="controls">
 
-							<label>Username</label>
+							<label>Usuario</label>
 							<input type="text" class="form-control" name="username" id="username" placeholder="Username"
 								required data-validation-required-message="Ingresa tu usuario" />
 							<p class="help-block"></p>
@@ -45,7 +45,7 @@
 
 					<div class="control-group form-group">
 						<div class="controls">
-							<label>Password</label>
+							<label>Clave</label>
 							<input type="password" class="form-control" name="password" id="password"
 								placeholder="Password" />
 								<p> </p>
@@ -55,7 +55,7 @@
 
 				</form>
 				<div th:if="${error != null}" class="alert alert-danger">
-					Usuario o password incorrecta.
+					Usuario o contraseña incorrecta.
 				</div>
 			</div>
 		</div>

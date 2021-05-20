@@ -79,14 +79,15 @@
 		<div class="row">
 			<div class="col-lg-8 mb-4">
 				<h3>Agregar un nuevo usuario a la base de datos</h3>
-				<form action="#" th:action="@{agregar}" th:object="${user}" name="sentMessage" id="contactForm" method="post">
+				<form action="#" th:action="@{agregar}" th:object="${usuario}" name="sentMessage" id="contactForm"
+					method="post">
 
 
 					<div class="control-group form-group">
 						<div class="controls">
-							<label>Username</label>
-							<input type="text"  th:field="*{username}" class="form-control" id="name" required
-								data-validation-required-message="Ingrese un username">
+							<label>Apellido</label>
+							<input type="text" th:field="*{apellido}" class="form-control" id="apellido" required
+								data-validation-required-message="Ingrese el apellido">
 							<p class="help-block"></p>
 						</div>
 					</div>
@@ -94,14 +95,88 @@
 
 					<div class="control-group form-group">
 						<div class="controls">
-							<label>Password:</label>
-							
-							<input type="password" th:field="*{password}" class="form-control" id="password" required
+							<label>Nombre</label>
+							<input type="text" th:field="*{nombre}" class="form-control" id="nombre" required
+								data-validation-required-message="Ingrese el nombre">
+							<p class="help-block"></p>
+						</div>
+					</div>
+
+
+					<div class="control-group form-group">
+						<div class="controls">
+							<label>Dni</label>
+							<input type="text" th:field="*{nroDocumento}" class="form-control" id="documento" required
+								data-validation-required-message="Ingrese el DNI">
+							<p class="help-block"></p>
+						</div>
+					</div>
+
+
+
+					<div class="control-group from group">
+						<div class="controls">
+							<label> Tipo de Documento &nbsp&nbsp</label>
+							<select>
+
+								<option> DNI </option>
+								<option> LC </option>
+								<option> LE </option>
+								<option> CI </option>
+
+							</select>
+						</div>
+					</div>
+
+
+					<div class="control-group form-group">
+						<div class="controls">
+							<label>Email</label>
+							<input type="email" th:field="*{email}" class="form-control" id="email" required
+								data-validation-required-message="Ingrese el email">
+							<p class="help-block"></p>
+						</div>
+					</div>
+
+
+					<div class="control-group form-group">
+						<div class="controls">
+							<label>Nombre de usuario</label>
+							<input type="text" th:field="*{usuario}" class="form-control" id="usuario" required
+								data-validation-required-message="Ingrese el nombre de usuario">
+							<p class="help-block"></p>
+						</div>
+					</div>
+
+
+					<div class="control-group from group">
+						<div class="controls">
+							<label> Tipo de Perfil &nbsp&nbsp</label>
+							<select>
+
+								<tr th:each="perfil: ${perfiles}">
+
+									<option value="perfil.id"> <span th:text="${perfil.nombre}"></option>
+
+
+								</tr>
+
+
+							</select>
+						</div>
+					</div>
+
+
+					<div class="control-group form-group">
+						<div class="controls">
+							<label>Contraseña:</label>
+
+							<input type="password" th:field="*{clave}" class="form-control" id="password" required
 								data-validation-required-message="Ingresa una contraseña">
 						</div>
 					</div>
 
-					
+
 
 					<p> </p>
 					<div id="success"></div>

@@ -77,19 +77,30 @@
 
 			<thead>
 				<tr>
-					<th> Username </th>
-					<th> Enabled </th>
-					<th> Password </th>
+					<th> usuario </th>
+					<th> Apellido </th>
+					<th> Nombre </th>
+					<th> Email </th>
+					<th> Documento </th>
+					
 
 				</tr>
 
 			</thead>
 			<tbody>
 
-				<tr th:each="user : ${users}">
-					<td> <span th:text="${user.username}" /> </td>
-					<td <span th:text="${user.isEnabled()}" /> </td>
-					<td <span th:text="${user.password}" /> </td>
+				<tr th:each="usuario : ${usuarios}">
+				
+						<td> <span th:text="${usuario.usuario}" /> </td>
+						<td> <span th:text="${usuario.apellido}" /> </td>
+						<td> <span th:text="${usuario.nombre}" /> </td>
+						<td> <span th:text="${usuario.email}" /> </td>
+						<td> <span th:text="${usuario.nroDocumento}" /> </td>
+						<td> <span th:text="${usuario.perfiles}" /> </td>
+						
+						
+					
+					
 				</tr>
 			</tbody>
 
@@ -100,18 +111,18 @@
 
 			<thead>
 				<tr>
-					<th> Roles </th>
-					<th> Username </th>
+					<th> Id </th>
+					<th> Perfil </th>
 				</tr>
 
 			</thead>
 
 			<tbody>
 				
-				<tr th:each="rol: ${roles}">
+				<tr th:each="perfil: ${perfiles}">
 
-					<td> <span th:text="${rol.role}" /> </td>
-					<td> <span th:text="${rol.getUser().getUsername()}" /> </td>
+					<td> <span th:text="${perfil.id}" /> </td>
+					<td> <span th:text="${perfil.nombre}" /> </td>
 
 				</tr>
 			</tbody>

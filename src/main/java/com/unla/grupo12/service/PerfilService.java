@@ -1,5 +1,0 @@
-package com.unla.grupo12.service;
-
-public interface PerfilService{
-
-}
