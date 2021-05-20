@@ -1,8 +1,8 @@
 # grupo-12-OO2-2021
 Primera parte del TPC, Sistema integrador (versión web con bases de datos)
 
-- Para testear el login, es necesario crear en la base de datos un perfil con el nombre "Admin" y un usuario asignado a este perfil, 
-para loguearse, la clave debe estar encriptada con el metodo new BCryptPasswordEncoder().encode(contraseña).
+- Se creó la vista para el login haciendo referencia a los usuarios que hay ya precargados en la bd. Para testear el login, es necesario crear en la base de datos un perfil con el nombre "Admin" y un usuario asignado a este perfil, 
+para loguearse, la clave debe estar encriptada con el metodo new BCryptPasswordEncoder().encode(contraseña) sino tira error.
 
 - Dentro de la pestaña "Usuarios" se pueden listar todos los usuarios y los perifles que hay en la base de datos
 
