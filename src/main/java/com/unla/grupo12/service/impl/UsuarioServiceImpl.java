@@ -48,6 +48,16 @@ public class UsuarioServiceImpl implements IUsuarioService, UserDetailsService {
 
 	}
 
+	
+	
+	
+	/*
+	 * 
+	 *  METODOS PARA EL INICIO DE SESION 
+	 *  
+	 */
+	
+	
 	@Override
 	public UserDetails loadUserByUsername(String nombreUsuario) throws UsernameNotFoundException {
 

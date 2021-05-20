@@ -34,6 +34,8 @@ public class PerfilServiceImpl implements IPerfilService {
 	}
 
 
+	// IMPLEMENTACION DEL SERVICIO PARA AGREGAR UN PerfilModel A LA BD 
+	 
 	@Override
 	public PerfilModel agregarOActualizar(PerfilModel perfilModel) {
 		

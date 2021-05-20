@@ -40,7 +40,11 @@ public class UsuariosController {
 
 	
 	
-	// EN LA PESTAÑA USUARIOS SE MUESTRAN EN UNA TABLA TODOS LOS USUARIOS Y PERFILES QUE HAY EN LA BASE DE DATOS
+	/*  EN LA PESTAÑA USUARIOS SE MUESTRAN EN UNA TABLA 
+	 *  TODOS LOS USUARIOS Y PERFILES QUE HAY EN LA BASE DE DATOS
+	 *  
+	 */
+	
 	@GetMapping("")
 	public ModelAndView index() {
 		
@@ -59,7 +63,15 @@ public class UsuariosController {
 	}
 	
 	
-	// 
+	
+	
+	/* PESTAÑA AGREGAR USUARIO A BD
+	 * SE TRAEN, A TRAVES DEL SERVICIO DE PERFIL, TODOS LOS PERFILES CARGADOS EN LA BD,
+	 * SE AGREGAN AL ModelAndView PARA MOSTRARLOS EN UNA LISTA DESPLEGABLE
+	 * 
+	 * 
+	 */
+	
 	@GetMapping("agregar")
 	public ModelAndView agregar() {
 
@@ -74,6 +86,12 @@ public class UsuariosController {
 
 	}
 
+	
+	
+	/* UNA VEZ REALIZADA LA SOLICITUD POST
+	 * SE AGREGA EL UsuarioModel A LA BD
+	 * 
+	 */
 	
 	@PostMapping("agregar")
 	public ModelAndView agregarUsuarioABd(@ModelAttribute("usuario") UsuarioModel usuarioModel) {
