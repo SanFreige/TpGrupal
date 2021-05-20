@@ -9,3 +9,8 @@ para loguearse, la clave debe estar encriptada con el metodo new BCryptPasswordE
 - Dentro de la pestaña "Agregar Usuarios" se creo un formulario para poder agregar a un nuevo usuario. Las listas desplegables como "Tipo de Documento" y "Tipo de perfil" todavia no tienen ninguna funcionalidad. Con el boton "Registrar" se agrega un nuevo usuario a la BD redireccionando por el momento a la misma pagina sin ninguna alerta.
 
 - El nuevo usuario que se agrega, se carga con la clave encriptada en la bd.
+
+Tareas por terminar
+- Corregir el alta de un nuevo usuario con todos sus parametros completos (Tipo de documento, Tipo de perfil)
+- Dentro de la vista de "Usuarios", corregir y agregar nuevos parametros incompletos
+
