@@ -79,7 +79,8 @@
 		<div class="row">
 			<div class="col-lg-8 mb-4">
 				<h3>Editar usuario</h3>
-				<form action="#" th:action="@{/usuarios/actualizar}" th:object="${usuario}" name="sentMessage" id="contactForm"
+				
+				<form action="#" th:action="@{'/usuarios/actualizar/' + ${usuario.id}} " th:object="${usuario}" name="sentMessage" id="contactForm"
 					method="post">
 
 
@@ -87,7 +88,7 @@
 						<div class="controls">
 							<label>Apellido</label>
 							
-							<input type="text" th:placeholder="*{apellido}" th:field="*{apellido}" class="form-control" id="apellido" required
+							<input type="text" th:value="*{apellido}" th:field="*{apellido}" class="form-control" id="apellido" required
 								data-validation-required-message="Ingrese el apellido">
 							<p class="help-block"></p>
 						</div>
@@ -97,7 +98,7 @@
 					<div class="control-group form-group">
 						<div class="controls">
 							<label>Nombre</label>
-							<input type="text" th:placeholder="*{nombre}" th:field="*{nombre}" class="form-control" id="nombre" required
+							<input type="text" th:value="*{nombre}" th:field="*{nombre}" class="form-control" id="nombre" required
 								data-validation-required-message="Ingrese el nombre">
 							<p class="help-block"></p>
 						</div>
@@ -107,7 +108,7 @@
 					<div class="control-group form-group">
 						<div class="controls">
 							<label>Dni</label>
-							<input type="text" th:placeholder="*{nroDocumento}" th:field="*{nroDocumento}" class="form-control" id="documento" required
+							<input type="text" th:value="*{nroDocumento}" th:field="*{nroDocumento}" class="form-control" id="documento" required
 								data-validation-required-message="Ingrese el DNI">
 							<p class="help-block"></p>
 						</div>
@@ -115,15 +116,16 @@
 
 
 
+					
 					<div class="control-group from group">
 						<div class="controls">
 							<label> Tipo de Documento &nbsp&nbsp</label>
-							<select>
+							<select th:field="*{tipoDocumento}">
 
-								<option> DNI </option>
-								<option> LC </option>
-								<option> LE </option>
-								<option> CI </option>
+								<option th:value="1"> DNI </option>
+								<option th:value="2"> LC </option>
+								<option th:value="3"> LE </option>
+								<option th:value="4"> CI </option>
 
 							</select>
 						</div>
@@ -133,7 +135,7 @@
 					<div class="control-group form-group">
 						<div class="controls">
 							<label>Email</label>
-							<input type="email" th:placeholder="*{email}" th:field="*{email}" class="form-control" id="email" required
+							<input type="email" th:value="*{email}" th:field="*{email}" class="form-control" id="email" required
 								data-validation-required-message="Ingrese el email">
 							<p class="help-block"></p>
 						</div>
@@ -143,7 +145,7 @@
 					<div class="control-group form-group">
 						<div class="controls">
 							<label>Nombre de usuario</label>
-							<input type="text" th:placeholder="*{usuario}" th:field="*{usuario}" class="form-control" id="usuario" required
+							<input type="text" th:value="*{usuario}" th:field="*{usuario}" class="form-control" id="usuario" required
 								data-validation-required-message="Ingrese el nombre de usuario">
 							<p class="help-block"></p>
 						</div>
@@ -166,17 +168,6 @@
 							</select>
 						</div>
 					</div>
-
-
-					<div class="control-group form-group">
-						<div class="controls">
-							<label>Contraseña:</label>
-
-							<input type="password" th:field="*{clave}" class="form-control" id="password" required
-								data-validation-required-message="Ingresa una contraseña">
-						</div>
-					</div>
-
 
 
 					<p> </p>

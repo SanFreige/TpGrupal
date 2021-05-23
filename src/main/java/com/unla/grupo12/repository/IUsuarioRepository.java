@@ -19,5 +19,7 @@ public interface IUsuarioRepository extends JpaRepository<Usuario, Serializable>
 	public abstract Usuario findById(Long id);
 	
 	public abstract Usuario findByUsuario(String usuario);
+	
+	
 
 }

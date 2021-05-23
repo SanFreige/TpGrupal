@@ -100,6 +100,7 @@ public class UsuariosController {
 	@PostMapping("agregar")
 	public RedirectView agregarUsuario(@ModelAttribute("usuario") UsuarioModel usuarioModel) {
 		
+		
 		//REDIRECCIONA A LA VISTA DE USUARIOS
 		RedirectView redirect = new RedirectView();
 		redirect.setUrl("");
@@ -114,27 +115,12 @@ public class UsuariosController {
 	
 	
 	
-	@PostMapping("actualizar")
-	public RedirectView actualizarUsuario(@ModelAttribute("usuario") UsuarioModel usuarioModel) {
-		
-		
-		//REDIRECCIONA A LA VISTA DE USUARIOS
-		RedirectView redirect = new RedirectView();
-		redirect.setUrl("");
-		
-		
-		usuarioService.agregarOActualizar(usuarioModel);
-		
-		return redirect;
-		
-	}
 	
 	
 	
 	
-	// SE CREA LA PETICION POST DESDE LA VISTA Usuarios -> EditarUsuario CON LOS DATOS DEL
-	// USUARIO SELECCIONADO DE LA LISTA
-	@PostMapping("editar/{id}")
+	
+	@GetMapping("editar/{id}")
 	public ModelAndView editarUsuario(@PathVariable("id") Long id) {
 
 		ModelAndView modelo = new ModelAndView(ViewRouteHelper.USUARIOS_EDITAR);
@@ -153,6 +139,44 @@ public class UsuariosController {
 
 	}
 	
+	
+	
+	
+	@PostMapping("actualizar/{id}")
+	public RedirectView actualizarUsuario(@PathVariable("id") Long id, @ModelAttribute("usuario") UsuarioModel usuarioModel) {
+		
+		
+		UsuarioModel usuarioOriginal = usuarioService.findById(id);
+		
+		usuarioModel.setClave(usuarioOriginal.getClave());
+		
+		
+		usuarioService.agregarOActualizar(usuarioModel);
+		
+		//REDIRECCIONA A LA VISTA DE USUARIOS
+		RedirectView redirect = new RedirectView("../");
+		
+		
+		
+		return redirect;
+		
+	}
+	
+	//BAJA LOGICA DE LA BASE DE DATOS
+	@GetMapping("eliminar/{id}")
+	public RedirectView actualizarUsuario(@PathVariable("id") Long id) {
+		
+		
+		usuarioService.darDeBaja(id);
+		
+		//REDIRECCIONA A LA VISTA DE USUARIOS
+		RedirectView redirect = new RedirectView("..");
+		
+		
+		
+		return redirect;
+		
+	}
 	
 
 }

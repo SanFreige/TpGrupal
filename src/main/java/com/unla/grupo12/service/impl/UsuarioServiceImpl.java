@@ -60,6 +60,15 @@ public class UsuarioServiceImpl implements IUsuarioService, UserDetailsService {
 	
 	
 	
+	@Override
+	public boolean darDeBaja(Long id) {
+		
+		usuarioRepository.findById(id).setActivo(false);
+		usuarioRepository.save(usuarioRepository.findById(id));
+		
+		return true;
+	}
+	
 	
 	/*
 	 * 
@@ -94,6 +103,8 @@ public class UsuarioServiceImpl implements IUsuarioService, UserDetailsService {
 
 		return new ArrayList<GrantedAuthority>(grantedAuthorities);
 	}
+
+	
 
 	
 

@@ -85,18 +85,13 @@
 					<th> Nombre </th>
 					<th> Email </th>
 					<th> Documento </th>
-					<th> Perfil </th>
+					<th> Perfiles </th>
+					<th> Activo </th>
 				</tr>
 			</thead>
 			<tbody>
 
-
-
-
 				<tr th:each="usuario : ${usuarios}">
-
-					<form action="#" th:action="@{'usuarios/editar/' + ${usuario.id}}" th:object="${usuario}"
-						method="POST">
 
 						<td> <span th:text="${usuario.id}" /> </td>
 						<td> <span th:text="${usuario.usuario}" /> </td>
@@ -104,28 +99,18 @@
 						<td> <span th:text="${usuario.nombre}" /> </td>
 						<td> <span th:text="${usuario.email}" /> </td>
 						<td> <span th:text="${usuario.nroDocumento}" /> </td>
+						<td> <span th:text="${usuario.getPerfiles().size()}" /> </td>
+						<td> <span th:text="${usuario.isActivo} ? 'SI':'NO'" > </td>
 						
-						<td> <span th:text="${usuario.getPerfiles()}" /> </td>
-
-
-						<td> <button type="submit" class="btn btn-primary"> Editar </button> </td>
-						<td> <button type="submit" class="btn btn-primary"> Eliminar </button> </td>
-
-					</form>
+						<td> <a class="btn btn-primary" th:href="@{'usuarios/editar/' + ${usuario.id}}"> Editar </a> </td>
+						
+						<td> <a class="btn btn-primary" th:href="@{'usuarios/eliminar/' + ${usuario.id}}"> Eliminar</a> </td> 
+					
 				</tr>
-
-
-
-
 
 			</tbody>
 
-
-
 		</table>
-
-
-
 
 
 		<table cellpadding="5">
