@@ -11,6 +11,6 @@ para loguearse, la clave debe estar encriptada con el metodo new BCryptPasswordE
 - El nuevo usuario que se agrega, se carga con la clave encriptada en la bd.
 
 Tareas por terminar
-- Corregir el alta de un nuevo usuario con todos sus parametros completos (Tipo de documento, Tipo de perfil)
+- Corregir el alta de un nuevo usuario con todos sus parametros completos (Tipo de perfil)
 - Dentro de la vista de "Usuarios", corregir y agregar nuevos parametros incompletos
 
