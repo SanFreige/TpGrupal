@@ -10,5 +10,7 @@ public interface IUsuarioService {
 	
 	public UsuarioModel agregarOActualizar(UsuarioModel usuarioModel);
 	public List<Usuario> getAll();
+	public UsuarioModel findById(Long id);
+	
 	
 }

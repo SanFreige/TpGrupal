@@ -11,10 +11,10 @@
 	<title>Modern Business - Start Bootstrap Template</title>
 
 	<!-- Bootstrap core CSS -->
-	<link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
 	<!-- Custom styles for this template -->
-	<link href="../css/modern-business.css" rel="stylesheet">
+	<link href="../../css/modern-business.css" rel="stylesheet">
 
 </head>
 
@@ -59,7 +59,7 @@
 	<div class="container">
 
 		<!-- Page Heading/Breadcrumbs -->
-		<h1 class="mt-4 mb-3">Agregar usuarios a BD
+		<h1 class="mt-4 mb-3">Editar Usuario
 
 		</h1>
 
@@ -67,7 +67,7 @@
 			<li class="breadcrumb-item">
 				<a href="/">Home</a>
 			</li>
-			<li class="breadcrumb-item active">Agregar Usuarios</li>
+			<li class="breadcrumb-item active">Editar Usuario</li>
 		</ol>
 
 		<!-- Content Row -->
@@ -78,15 +78,16 @@
 		<!-- In order to set the email address and subject line for the contact form go to the bin/contact_me.php file. -->
 		<div class="row">
 			<div class="col-lg-8 mb-4">
-				<h3>Agregar un nuevo usuario a la base de datos</h3>
-				<form action="#" th:action="@{agregar}" th:object="${usuario}" name="sentMessage" id="contactForm"
+				<h3>Editar usuario</h3>
+				<form action="#" th:action="@{/usuarios/actualizar}" th:object="${usuario}" name="sentMessage" id="contactForm"
 					method="post">
 
 
 					<div class="control-group form-group">
 						<div class="controls">
 							<label>Apellido</label>
-							<input type="text" th:field="*{apellido}" class="form-control" id="apellido" required
+							
+							<input type="text" th:placeholder="*{apellido}" th:field="*{apellido}" class="form-control" id="apellido" required
 								data-validation-required-message="Ingrese el apellido">
 							<p class="help-block"></p>
 						</div>
@@ -96,7 +97,7 @@
 					<div class="control-group form-group">
 						<div class="controls">
 							<label>Nombre</label>
-							<input type="text" th:field="*{nombre}" class="form-control" id="nombre" required
+							<input type="text" th:placeholder="*{nombre}" th:field="*{nombre}" class="form-control" id="nombre" required
 								data-validation-required-message="Ingrese el nombre">
 							<p class="help-block"></p>
 						</div>
@@ -106,7 +107,7 @@
 					<div class="control-group form-group">
 						<div class="controls">
 							<label>Dni</label>
-							<input type="text" th:field="*{nroDocumento}" class="form-control" id="documento" required
+							<input type="text" th:placeholder="*{nroDocumento}" th:field="*{nroDocumento}" class="form-control" id="documento" required
 								data-validation-required-message="Ingrese el DNI">
 							<p class="help-block"></p>
 						</div>
@@ -117,12 +118,12 @@
 					<div class="control-group from group">
 						<div class="controls">
 							<label> Tipo de Documento &nbsp&nbsp</label>
-							<select th:field="*{tipoDocumento}">
+							<select>
 
-								<option th:value="1"> DNI </option>
-								<option th:value="2"> LC </option>
-								<option th:value="3"> LE </option>
-								<option th:value="4"> CI </option>
+								<option> DNI </option>
+								<option> LC </option>
+								<option> LE </option>
+								<option> CI </option>
 
 							</select>
 						</div>
@@ -132,7 +133,7 @@
 					<div class="control-group form-group">
 						<div class="controls">
 							<label>Email</label>
-							<input type="email" th:field="*{email}" class="form-control" id="email" required
+							<input type="email" th:placeholder="*{email}" th:field="*{email}" class="form-control" id="email" required
 								data-validation-required-message="Ingrese el email">
 							<p class="help-block"></p>
 						</div>
@@ -142,7 +143,7 @@
 					<div class="control-group form-group">
 						<div class="controls">
 							<label>Nombre de usuario</label>
-							<input type="text" th:field="*{usuario}" class="form-control" id="usuario" required
+							<input type="text" th:placeholder="*{usuario}" th:field="*{usuario}" class="form-control" id="usuario" required
 								data-validation-required-message="Ingrese el nombre de usuario">
 							<p class="help-block"></p>
 						</div>
@@ -152,23 +153,20 @@
 					<div class="control-group from group">
 						<div class="controls">
 							<label> Tipo de Perfil &nbsp&nbsp</label>
+							<select>
+
+								<tr th:each="perfil: ${perfiles}">
+
+									<option value="perfil.id"> <span th:text="${perfil.nombre}"></option>
+
+
+								</tr>
+
+
+							</select>
 						</div>
-
 					</div>
-					
-					
-					
-					<select>
 
-						<tr th:each="perfil: ${perfiles}">
-
-							<option> <span th:text="${perfil.nombre}"></option>
-
-						</tr>
-
-
-					</select>
-					
 
 					<div class="control-group form-group">
 						<div class="controls">
@@ -180,25 +178,16 @@
 					</div>
 
 
+
+					<p> </p>
+					<div id="success"></div>
+					<!-- For success/fail messages -->
+					<button type="submit" class="btn btn-primary" id="sendMessageButton">Editar</button>
+				</form>
 			</div>
 
-
-
 		</div>
-
-
-
-
-
-		<p> </p>
-		<div id="success"></div>
-		<!-- For success/fail messages -->
-		<button type="submit" class="btn btn-primary" id="sendMessageButton">Registrar</button>
-		</form>
-	</div>
-
-	</div>
-	<!-- /.row -->
+		<!-- /.row -->
 
 	</div>
 	<!-- /.container -->

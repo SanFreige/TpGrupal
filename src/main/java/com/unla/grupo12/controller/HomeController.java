@@ -11,7 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.unla.grupo12.helpers.ViewRouteHelper;
 
 @Controller
-@RequestMapping("")
+@RequestMapping("/")
 
 public class HomeController {
 	
@@ -27,7 +27,7 @@ public class HomeController {
 	}
 	
 	
-	@GetMapping("/login")
+	@GetMapping("login")
 	public String login(Model model, @RequestParam(name = "error", required = false) String error, @RequestParam(name = "logout", required = false) String logout) {
 
 		model.addAttribute("error", error);

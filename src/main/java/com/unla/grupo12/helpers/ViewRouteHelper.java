@@ -9,5 +9,6 @@ public class ViewRouteHelper {
 	public final static String LOGOUT = "home/logout";	
 	public final static String USUARIOS = "home/usuarios";
 	public final static String USUARIOS_AGREGAR = "home/agregar";
+	public final static String USUARIOS_EDITAR = "home/editarUsuario";
 	
 }

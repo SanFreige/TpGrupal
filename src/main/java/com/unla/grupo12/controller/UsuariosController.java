@@ -1,5 +1,6 @@
 package com.unla.grupo12.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -26,7 +28,7 @@ import com.unla.grupo12.service.IUsuarioService;
 
 
 @Controller
-@RequestMapping("usuarios")
+@RequestMapping("/usuarios")
 public class UsuariosController {
 	
 	
@@ -73,7 +75,7 @@ public class UsuariosController {
 	 */
 	
 	@GetMapping("agregar")
-	public ModelAndView agregar() {
+	public ModelAndView agregarUsuario() {
 
 		ModelAndView modelo = new ModelAndView(ViewRouteHelper.USUARIOS_AGREGAR);
 		
@@ -82,6 +84,8 @@ public class UsuariosController {
 		modelo.addObject("perfiles", perfiles);
 		modelo.addObject("usuario", new Usuario());
 		
+		
+
 		return modelo;
 
 	}
@@ -94,16 +98,61 @@ public class UsuariosController {
 	 */
 	
 	@PostMapping("agregar")
-	public ModelAndView agregarUsuarioABd(@ModelAttribute("usuario") UsuarioModel usuarioModel) {
+	public RedirectView agregarUsuario(@ModelAttribute("usuario") UsuarioModel usuarioModel) {
 		
-		ModelAndView modelo = new ModelAndView(ViewRouteHelper.USUARIOS_AGREGAR);
+		//REDIRECCIONA A LA VISTA DE USUARIOS
+		RedirectView redirect = new RedirectView();
+		redirect.setUrl("");
+		
+		
+		//AGREGA EL MODELO A LA BASE DE DATOS A TRAVES DEL SERVICIO 
+		usuarioService.agregarOActualizar(usuarioModel);
+		
+		
+		return redirect;
+	}
+	
+	
+	
+	@PostMapping("actualizar")
+	public RedirectView actualizarUsuario(@ModelAttribute("usuario") UsuarioModel usuarioModel) {
+		
+		
+		//REDIRECCIONA A LA VISTA DE USUARIOS
+		RedirectView redirect = new RedirectView();
+		redirect.setUrl("");
 		
 		
 		usuarioService.agregarOActualizar(usuarioModel);
 		
+		return redirect;
+		
+	}
+	
+	
+	
+	
+	// SE CREA LA PETICION POST DESDE LA VISTA Usuarios -> EditarUsuario CON LOS DATOS DEL
+	// USUARIO SELECCIONADO DE LA LISTA
+	@PostMapping("editar/{id}")
+	public ModelAndView editarUsuario(@PathVariable("id") Long id) {
+
+		ModelAndView modelo = new ModelAndView(ViewRouteHelper.USUARIOS_EDITAR);
+		
+		UsuarioModel usuario = usuarioService.findById(id);
+		modelo.addObject("usuario", usuario);
+		
+		
+		//LISTADO DE TIPOS DE PERFILES EN LA LISTA DESPLEGABLE DENTRO DE LA VSITA Usuarios -> EditarUsuario
+		List<Perfil> perfiles = perfilService.getAll();
+		modelo.addObject("perfiles", perfiles);
+		
+		
 		
 		return modelo;
+
 	}
+	
 	
 
 }

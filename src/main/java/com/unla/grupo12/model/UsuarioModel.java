@@ -40,7 +40,7 @@ public class UsuarioModel {
 		this.email = email;
 		this.usuario = usuario;
 		this.setClave(clave);
-		this.setActivo(true);
+		this.setActivo(true);  //AL MOMENTO DE AGREGAR UN USUARIO SETEA ESTE VALOR COMO TRUE
 		
 	}
 

@@ -11,10 +11,10 @@
 	<title>Modern Business - Start Bootstrap Template</title>
 
 	<!-- Bootstrap core CSS -->
-	<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
 	<!-- Custom styles for this template -->
-	<link href="css/modern-business.css" rel="stylesheet">
+	<link href="../css/modern-business.css" rel="stylesheet">
 
 </head>
 
@@ -73,38 +73,59 @@
 
 
 		<!-- Team Members -->
+
+
 		<table cellpadding="5">
 
 			<thead>
 				<tr>
+					<th> id </th>
 					<th> usuario </th>
 					<th> Apellido </th>
 					<th> Nombre </th>
 					<th> Email </th>
 					<th> Documento </th>
-					
-
+					<th> Perfil </th>
 				</tr>
-
 			</thead>
 			<tbody>
 
+
+
+
 				<tr th:each="usuario : ${usuarios}">
-				
+
+					<form action="#" th:action="@{'usuarios/editar/' + ${usuario.id}}" th:object="${usuario}"
+						method="POST">
+
+						<td> <span th:text="${usuario.id}" /> </td>
 						<td> <span th:text="${usuario.usuario}" /> </td>
 						<td> <span th:text="${usuario.apellido}" /> </td>
 						<td> <span th:text="${usuario.nombre}" /> </td>
 						<td> <span th:text="${usuario.email}" /> </td>
 						<td> <span th:text="${usuario.nroDocumento}" /> </td>
-						<td> <span th:text="${usuario.perfiles}" /> </td>
 						
-						
-					
-					
+						<td> <span th:text="${usuario.getPerfiles()}" /> </td>
+
+
+						<td> <button type="submit" class="btn btn-primary"> Editar </button> </td>
+						<td> <button type="submit" class="btn btn-primary"> Eliminar </button> </td>
+
+					</form>
 				</tr>
+
+
+
+
+
 			</tbody>
 
+
+
 		</table>
+
+
+
 
 
 		<table cellpadding="5">
@@ -118,7 +139,7 @@
 			</thead>
 
 			<tbody>
-				
+
 				<tr th:each="perfil: ${perfiles}">
 
 					<td> <span th:text="${perfil.id}" /> </td>

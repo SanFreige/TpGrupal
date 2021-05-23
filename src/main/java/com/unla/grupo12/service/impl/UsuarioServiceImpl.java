@@ -49,15 +49,24 @@ public class UsuarioServiceImpl implements IUsuarioService, UserDetailsService {
 	}
 
 	
+	@Override
+	public UsuarioModel findById(Long id) {
+
+		Usuario usuario = usuarioRepository.findById(id);
+
+		return usuarioConverter.entityToModel(usuario);
+
+	}
+	
+	
 	
 	
 	/*
 	 * 
-	 *  METODOS PARA EL INICIO DE SESION 
-	 *  
+	 * METODOS PARA EL INICIO DE SESION
+	 * 
 	 */
-	
-	
+
 	@Override
 	public UserDetails loadUserByUsername(String nombreUsuario) throws UsernameNotFoundException {
 
@@ -85,5 +94,9 @@ public class UsuarioServiceImpl implements IUsuarioService, UserDetailsService {
 
 		return new ArrayList<GrantedAuthority>(grantedAuthorities);
 	}
+
+	
+
+	
 
 }
