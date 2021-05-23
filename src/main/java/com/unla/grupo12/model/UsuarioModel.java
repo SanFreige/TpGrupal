@@ -1,6 +1,7 @@
 package com.unla.grupo12.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.unla.grupo12.entity.Perfil;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -18,6 +19,7 @@ public class UsuarioModel {
   private String tipoDocumento;
   private String email;
   private String usuario;
+  @JsonIgnore
   private String clave;
   private Perfil Perfil;
 
