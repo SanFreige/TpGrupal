@@ -13,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -61,16 +62,20 @@ public class HomeController {
 
   }
 
-  @GetMapping("/lista-usuario")
-  public List<UsuarioModel> listaUsuario() {
+  @GetMapping("/lista-usuarios")
+  public ModelAndView listaUsuario() {
+    ModelAndView mov= new ModelAndView(ViewRouteHelper.CONTACT);
     List<UsuarioModel> list = usuarioService.listUsuarios();
-    return list;
+    mov.addObject("listaUsuarios", list);
+    return mov;
   }
 
-  @GetMapping("/lista-perfil")
-  public List<PerfilModel> listaPerfil() {
+  @GetMapping("/lista-perfiles")
+  public ModelAndView listaPerfil() {
+    ModelAndView mov= new ModelAndView(ViewRouteHelper.CONTACT);
     List<PerfilModel> list = perfilService.listPerfil();
-    return list;
+    mov.addObject("listaPerfiles", list);
+    return mov;
   }
 
   @GetMapping(value = "/perfiles", produces = MediaType.APPLICATION_PDF_VALUE)
