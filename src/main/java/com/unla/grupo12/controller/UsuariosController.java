@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -102,9 +101,7 @@ public class UsuariosController {
 		
 		
 		//REDIRECCIONA A LA VISTA DE USUARIOS
-		RedirectView redirect = new RedirectView();
-		redirect.setUrl("");
-		
+		RedirectView redirect = new RedirectView("/lista-usuarios", false);
 		
 		//AGREGA EL MODELO A LA BASE DE DATOS A TRAVES DEL SERVICIO 
 		usuarioService.agregarOActualizar(usuarioModel);

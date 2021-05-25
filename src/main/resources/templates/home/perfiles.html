@@ -65,7 +65,7 @@
 	<div class="container">
 
 		<!-- Page Heading/Breadcrumbs -->
-		<h1 class="mt-4 mb-3">Usuarios en la BD
+		<h1 class="mt-4 mb-3">Perfiles en la BD
 			<small></small>
 		</h1>
 
@@ -73,7 +73,7 @@
 			<li class="breadcrumb-item">
 				<a href="/">Home</a>
 			</li>
-			<li class="breadcrumb-item active">Usuarios</li>
+			<li class="breadcrumb-item active">Perfiles</li>
 		</ol>
 
 		<!-- Intro Content -->
@@ -86,47 +86,28 @@
 
 			<thead>
 				<tr>
-					<th> id </th>
-					<th> usuario </th>
-					<th> Apellido </th>
-					<th> Nombre </th>
-					<th> Email </th>
-					<th> Documento </th>
+					<th> Id </th>
 					<th> Perfil </th>
-					<th> Activo </th>
 				</tr>
+
 			</thead>
+
 			<tbody>
 
-				<tr th:each="usuario : ${listaUsuarios}">
+				<tr th:each="perfil: ${listaPerfiles}">
 
-					<td> <span th:text="${usuario.id}" /> </td>
-					<td> <span th:text="${usuario.usuario}" /> </td>
-					<td> <span th:text="${usuario.apellido}" /> </td>
-					<td> <span th:text="${usuario.nombre}" /> </td>
-					<td> <span th:text="${usuario.email}" /> </td>
-					<td> <span th:text="${usuario.nroDocumento}" /> </td>
-					<td th:if="${usuario.perfil != null}">
-						<span th:text="${usuario.perfil.getNombre()}"> </span>
-					</td>
-
-					<td> <span th:text="${usuario.isActivo} ? 'SI':'NO'"> </td>
-
-					<td> <a class="btn btn-primary" th:href="@{'usuarios/editar/' + ${usuario.id}}"> Editar </a> </td>
-
-					<td> <a class="btn btn-primary" th:href="@{'usuarios/eliminar/' + ${usuario.id}}"> Eliminar</a>
-					</td>
+					<td> <span th:text="${perfil.id}" /> </td>
+					<td> <span th:text="${perfil.nombre}" /> </td>
 
 				</tr>
-
 			</tbody>
 
 		</table>
 
-
-		<a class="btn btn-primary" th:href="@{/usuarios-pdf}"> Generar PDF</a> </td>
+		<a class="btn btn-primary" th:href="@{/perfiles-pdf}"> Generar PDF</a> </td>
 
 		<p> </p>
+		
 	</div>
 	<!-- /.container -->
 

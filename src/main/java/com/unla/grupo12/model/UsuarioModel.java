@@ -4,6 +4,7 @@ import java.util.Set;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.unla.grupo12.entity.Perfil;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -23,7 +24,7 @@ public class UsuarioModel {
 	private String usuario;
 	private String clave;
 	private boolean activo;
-	private Set<Perfil> perfiles;
+	private Perfil perfil;
 	
 	public UsuarioModel() {}
 
@@ -48,7 +49,7 @@ public class UsuarioModel {
 		return id;
 	}
 
-	protected void setId(Long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -117,13 +118,15 @@ public class UsuarioModel {
 		this.activo = activo;
 	}
 
-	public Set<Perfil> getPerfiles() {
-		return perfiles;
+	public Perfil getPerfil() {
+		return perfil;
 	}
 
-	public void setPerfiles(Set<Perfil> perfiles) {
-		this.perfiles = perfiles;
+	public void setPerfil(Perfil perfil) {
+		this.perfil = perfil;
 	}
+
+	
 	
 	
 

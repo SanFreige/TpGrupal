@@ -1,5 +1,6 @@
 package com.unla.grupo12.service;
 
+import java.io.ByteArrayInputStream;
 import java.util.List;
 
 import com.unla.grupo12.entity.Usuario;
@@ -12,5 +13,8 @@ public interface IUsuarioService {
 	public List<Usuario> getAll();
 	public UsuarioModel findById(Long id);
 	public boolean darDeBaja(Long id);
+	
+	List<UsuarioModel> listUsuarios ();
+	public ByteArrayInputStream generacionPdf ();
 	
 }

@@ -37,8 +37,15 @@
 						<a class="nav-link" href="/usuarios/agregar">Agregar Usuarios</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="/usuarios">Usuarios</a>
+						<a class="nav-link" href="/lista-usuarios">Usuarios</a>
 					</li>
+
+					</li>
+
+					<li class="nav-item">
+						<a class="nav-link" href="/lista-perfiles">Perfiles</a>
+					</li>
+
 
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown"
@@ -79,17 +86,17 @@
 		<div class="row">
 			<div class="col-lg-8 mb-4">
 				<h3>Editar usuario</h3>
-				
-				<form action="#" th:action="@{'/usuarios/actualizar/' + ${usuario.id}} " th:object="${usuario}" name="sentMessage" id="contactForm"
-					method="post">
+
+				<form action="#" th:action="@{'/usuarios/actualizar/' + ${usuario.id}} " th:object="${usuario}"
+					name="sentMessage" id="contactForm" method="post">
 
 
 					<div class="control-group form-group">
 						<div class="controls">
 							<label>Apellido</label>
-							
-							<input type="text" th:value="*{apellido}" th:field="*{apellido}" class="form-control" id="apellido" required
-								data-validation-required-message="Ingrese el apellido">
+
+							<input type="text" th:value="*{apellido}" th:field="*{apellido}" class="form-control"
+								id="apellido" required data-validation-required-message="Ingrese el apellido">
 							<p class="help-block"></p>
 						</div>
 					</div>
@@ -98,8 +105,8 @@
 					<div class="control-group form-group">
 						<div class="controls">
 							<label>Nombre</label>
-							<input type="text" th:value="*{nombre}" th:field="*{nombre}" class="form-control" id="nombre" required
-								data-validation-required-message="Ingrese el nombre">
+							<input type="text" th:value="*{nombre}" th:field="*{nombre}" class="form-control"
+								id="nombre" required data-validation-required-message="Ingrese el nombre">
 							<p class="help-block"></p>
 						</div>
 					</div>
@@ -108,7 +115,8 @@
 					<div class="control-group form-group">
 						<div class="controls">
 							<label>Dni</label>
-							<input type="text" th:value="*{nroDocumento}" th:field="*{nroDocumento}" class="form-control" id="documento" required
+							<input type="text" th:value="*{nroDocumento}" th:field="*{nroDocumento}"
+								class="form-control" id="documento" required
 								data-validation-required-message="Ingrese el DNI">
 							<p class="help-block"></p>
 						</div>
@@ -116,7 +124,7 @@
 
 
 
-					
+
 					<div class="control-group from group">
 						<div class="controls">
 							<label> Tipo de Documento &nbsp&nbsp</label>
@@ -135,8 +143,8 @@
 					<div class="control-group form-group">
 						<div class="controls">
 							<label>Email</label>
-							<input type="email" th:value="*{email}" th:field="*{email}" class="form-control" id="email" required
-								data-validation-required-message="Ingrese el email">
+							<input type="email" th:value="*{email}" th:field="*{email}" class="form-control" id="email"
+								required data-validation-required-message="Ingrese el email">
 							<p class="help-block"></p>
 						</div>
 					</div>
@@ -145,8 +153,8 @@
 					<div class="control-group form-group">
 						<div class="controls">
 							<label>Nombre de usuario</label>
-							<input type="text" th:value="*{usuario}" th:field="*{usuario}" class="form-control" id="usuario" required
-								data-validation-required-message="Ingrese el nombre de usuario">
+							<input type="text" th:value="*{usuario}" th:field="*{usuario}" class="form-control"
+								id="usuario" required data-validation-required-message="Ingrese el nombre de usuario">
 							<p class="help-block"></p>
 						</div>
 					</div>

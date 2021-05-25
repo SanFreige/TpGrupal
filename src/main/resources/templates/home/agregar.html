@@ -37,7 +37,13 @@
 						<a class="nav-link" href="/usuarios/agregar">Agregar Usuarios</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="/usuarios">Usuarios</a>
+						<a class="nav-link" href="/lista-usuarios">Usuarios</a>
+					</li>
+
+					</li>
+
+					<li class="nav-item">
+						<a class="nav-link" href="/lista-perfiles">Perfiles</a>
 					</li>
 
 					<li class="nav-item dropdown">
@@ -155,20 +161,20 @@
 						</div>
 
 					</div>
-					
-					
-					
-					<select>
+
+
+
+					<select th:field="${usuario.perfil}">
 
 						<tr th:each="perfil: ${perfiles}">
 
-							<option> <span th:text="${perfil.nombre}"></option>
+							<option th:value="${usuario.perfil}"> <span th:text="${perfil.nombre}"></option>
 
 						</tr>
 
 
 					</select>
-					
+
 
 					<div class="control-group form-group">
 						<div class="controls">
@@ -194,6 +200,7 @@
 		<div id="success"></div>
 		<!-- For success/fail messages -->
 		<button type="submit" class="btn btn-primary" id="sendMessageButton">Registrar</button>
+		<p> </p>
 		</form>
 	</div>
 

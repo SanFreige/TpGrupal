@@ -23,11 +23,11 @@ public class Usuario {
 	private String clave;
 	private boolean activo;
 	
-	@OneToMany(cascade=CascadeType.ALL)
-	@JoinColumn(name="id")
-	private Set<Perfil> perfiles;
-	
+	@ManyToOne
+	private Perfil perfil;
 	public Usuario() {}
+	
+	
 	
 	public Usuario(Long id, String nombre, String apellido, Long nroDocumento, String tipoDocumento, String email,
 			String usuario, String clave, boolean activo){
@@ -50,7 +50,7 @@ public class Usuario {
 	public Long getId() {
 		return id;
 	}
-	protected void setId(Long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getNombre() {
@@ -102,13 +102,15 @@ public class Usuario {
 		this.activo = activo;
 	}
 
-	public Set<Perfil> getPerfiles() {
-		return perfiles;
+	public Perfil getPerfil() {
+		return perfil;
 	}
 
-	public void setPerfiles(Set<Perfil> perfiles) {
-		this.perfiles = perfiles;
+	public void setPerfil(Perfil perfil) {
+		this.perfil = perfil;
 	}
+
+	
 
 	
 	
