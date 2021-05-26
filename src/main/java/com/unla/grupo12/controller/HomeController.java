@@ -39,7 +39,7 @@ public class HomeController {
 	@Autowired
 	private IUsuarioService usuarioService;
 
-	// Solo se puede acceder al index con un usuario que tenga como perfil Admin
+	
 
 	@PreAuthorize("hasAnyAuthority('Admin', 'Auditoria')")
 	@GetMapping("/")
