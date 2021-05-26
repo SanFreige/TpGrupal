@@ -28,6 +28,7 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Stream;
 
 @Service("perfilService")
@@ -48,17 +49,44 @@ public class PerfilServiceImpl implements IPerfilService {
 
 	}
 
+	@Override
+	public PerfilModel modificar(PerfilModel perfilModel) throws Exception{
+		PerfilModel modelo = this.findById(perfilModel.getId());
+		if(modelo == null)throw new Exception("Perfil no encontrado");
+		Perfil perfil = Perfil.builder()
+				.id(modelo.getId())
+				.nombre(perfilModel.getNombre())
+				.build();
+		return perfilConverter.entityToModel(perfilRepository.save(perfil));
+	}
+
+	@Override
+	public PerfilModel findById(Long id) {
+		Optional<Perfil> resultado = perfilRepository.findById(id);
+		if(resultado.isPresent()){
+			return perfilConverter.entityToModel(resultado.get());
+		}
+		return null;
+	}
+
+	@Override
+	public boolean darDeBaja(Long id) throws Exception {
+		PerfilModel modelo = this.findById(id);
+		if(modelo == null)throw new Exception("Perfil no encontrado");
+
+		perfilRepository.delete(perfilConverter.modelToEntity(modelo));
+		return true;
+	}
+
 	// IMPLEMENTACION DEL SERVICIO PARA AGREGAR UN PerfilModel A LA BD
 
 	@Override
-	public PerfilModel agregarOActualizar(PerfilModel perfilModel) {
+	public PerfilModel agregar(PerfilModel perfilModel) {
 
 		Perfil p = perfilRepository.save(perfilConverter.modelToEntity(perfilModel));
 
 		return perfilConverter.entityToModel(p);
 	}
-
-
 
 	private static Logger logger = LoggerFactory.getLogger(PerfilServiceImpl.class);
 

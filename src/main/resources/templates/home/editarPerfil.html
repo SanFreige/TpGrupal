@@ -11,10 +11,10 @@
 	<title>Modern Business - Start Bootstrap Template</title>
 
 	<!-- Bootstrap core CSS -->
-	<link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
 	<!-- Custom styles for this template -->
-	<link href="../css/modern-business.css" rel="stylesheet">
+	<link href="../../css/modern-business.css" rel="stylesheet">
 
 </head>
 
@@ -32,6 +32,7 @@
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav ml-auto">
 
+
 					<li class="nav-item">
 						<a class="nav-link" href="/usuarios/agregar">Agregar Usuarios</a>
 					</li>
@@ -42,7 +43,7 @@
 					</li>
 
 					<li class="nav-item">
-						<a class="nav-link" href="/perfiles/lista-perfiles">Perfiles</a>
+						<a class="nav-link" href="/lista-perfiles">Perfiles</a>
 					</li>
 
 
@@ -65,68 +66,49 @@
 	<div class="container">
 
 		<!-- Page Heading/Breadcrumbs -->
-		<h1 class="mt-4 mb-3">Usuarios en la BD
-			<small></small>
+		<h1 class="mt-4 mb-3">Editar/Agregar Perfil
+
 		</h1>
 
 		<ol class="breadcrumb">
 			<li class="breadcrumb-item">
 				<a href="/">Home</a>
 			</li>
-			<li class="breadcrumb-item active">Usuarios</li>
+			<li class="breadcrumb-item active">Editar/Agregar Perfil</li>
 		</ol>
 
-		<!-- Intro Content -->
+		<!-- Content Row -->
 
+		<!-- /.row -->
 
-		<!-- Team Members -->
+		<!-- Contact Form -->
+		<!-- In order to set the email address and subject line for the contact form go to the bin/contact_me.php file. -->
+		<div class="row">
+			<div class="col-lg-8 mb-4">
+				<h3>Editar/Agregar Perfil</h3>
 
+				<form action="#" th:action="@{'/perfiles/actualizar/' + ${perfil.id}} " th:object="${perfil}"
+					name="sentMessage" id="contactForm" method="post">
+					<input type="hidden" th:field="*{id}" ></input>
+					<div class="control-group form-group">
+						<div class="controls">
+							<label>Nombre</label>
 
-		<table cellpadding="5">
+							<input type="text" th:value="*{nombre}" th:field="*{nombre}" class="form-control"
+								id="nombre" required data-validation-required-message="Ingrese el Nombre">
+							<p class="help-block"></p>
+						</div>
+					</div>
+					<p> </p>
+					<div id="success"></div>
+					<!-- For success/fail messages -->
+					<button type="submit" class="btn btn-primary" id="sendMessageButton">Editar</button>
+				</form>
+			</div>
 
-			<thead>
-				<tr>
-					<th> id </th>
-					<th> usuario </th>
-					<th> Apellido </th>
-					<th> Nombre </th>
-					<th> Email </th>
-					<th> Documento </th>
-					<th> Perfil </th>
-					<th> Activo </th>
-				</tr>
-			</thead>
-			<tbody>
+		</div>
+		<!-- /.row -->
 
-				<tr th:each="usuario : ${listaUsuarios}">
-
-					<td> <span th:text="${usuario.id}" /> </td>
-					<td> <span th:text="${usuario.usuario}" /> </td>
-					<td> <span th:text="${usuario.apellido}" /> </td>
-					<td> <span th:text="${usuario.nombre}" /> </td>
-					<td> <span th:text="${usuario.email}" /> </td>
-					<td> <span th:text="${usuario.nroDocumento}" /> </td>
-					<td th:if="${usuario.perfil != null}">
-						<span th:text="${usuario.perfil.getNombre()}"> </span>
-					</td>
-
-					<td> <span th:text="${usuario.isActivo} ? 'SI':'NO'"> </td>
-
-					<td> <a class="btn btn-primary" th:href="@{'usuarios/editar/' + ${usuario.id}}"> Editar </a> </td>
-
-					<td> <a class="btn btn-primary" th:href="@{'usuarios/eliminar/' + ${usuario.id}}"> Eliminar</a>
-					</td>
-
-				</tr>
-
-			</tbody>
-
-		</table>
-
-
-		<a class="btn btn-primary" th:href="@{/usuarios-pdf}" target="_blank"> Generar PDF</a> </td>
-
-		<p> </p>
 	</div>
 	<!-- /.container -->
 
@@ -135,15 +117,12 @@
 		<div class="container">
 			<p class="m-0 text-center text-white">Copyright &copy; Your Website 2020</p>
 		</div>
-
-
 		<!-- /.container -->
 	</footer>
 
 	<!-- Bootstrap core JavaScript -->
-	<script src="vendor/jquery/jquery.min.js"></script>
-	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
+	<script src="../vendor/jquery/jquery.min.js"></script>
+	<script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 
 </body>

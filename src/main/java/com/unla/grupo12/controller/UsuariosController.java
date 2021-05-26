@@ -111,12 +111,6 @@ public class UsuariosController {
 	}
 	
 	
-	
-	
-	
-	
-	
-	
 	@GetMapping("editar/{id}")
 	public ModelAndView editarUsuario(@PathVariable("id") Long id) {
 

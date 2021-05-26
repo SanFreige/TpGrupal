@@ -9,12 +9,12 @@ import com.unla.grupo12.model.UsuarioModel;
 public interface IUsuarioService {
 	
 	
-	public UsuarioModel agregarOActualizar(UsuarioModel usuarioModel);
-	public List<Usuario> getAll();
-	public UsuarioModel findById(Long id);
-	public boolean darDeBaja(Long id);
+	 UsuarioModel agregarOActualizar(UsuarioModel usuarioModel);
+	 List<Usuario> getAll();
+	 UsuarioModel findById(Long id);
+	 boolean darDeBaja(Long id);
 	
 	List<UsuarioModel> listUsuarios ();
-	public ByteArrayInputStream generacionPdf ();
+	ByteArrayInputStream generacionPdf ();
 	
 }

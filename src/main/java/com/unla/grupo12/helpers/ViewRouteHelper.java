@@ -2,7 +2,7 @@ package com.unla.grupo12.helpers;
 
 public class ViewRouteHelper {
 
-	//VIEWS dentro de templates, hace referencia al archivo .html
+	//VIEWS dentro de templates, hace referencia al archivo login.html
 	
 	public final static String INDEX = "home/index";
 	public final static String LOGIN = "home/login";
@@ -11,5 +11,6 @@ public class ViewRouteHelper {
 	public final static String PERFILES = "home/perfiles";
 	public final static String USUARIOS_AGREGAR = "home/agregar";
 	public final static String USUARIOS_EDITAR = "home/editarUsuario";
+	public final static String PERFILES_EDITAR = "home/editarPerfil";
 	
 }

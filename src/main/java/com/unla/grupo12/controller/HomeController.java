@@ -43,8 +43,7 @@ public class HomeController {
 	@Autowired
 	  private IUsuarioService usuarioService;
 
-	  @Autowired
-	  private IPerfilService perfilService;
+
 
 	
 	//Solo se puede acceder al index con un usuario que tenga como perfil Admin
@@ -58,7 +57,7 @@ public class HomeController {
 	}
 	
 	
-	@GetMapping("login")
+	@GetMapping("/login")
 	public String login(Model model, @RequestParam(name = "error", required = false) String error, @RequestParam(name = "logout", required = false) String logout) {
 
 		model.addAttribute("error", error);
@@ -81,9 +80,6 @@ public class HomeController {
 		return ViewRouteHelper.INDEX;
 
 	}
-	
-
-  
 
   @GetMapping("/lista-usuarios")
   public ModelAndView listaUsuario() {
@@ -93,23 +89,6 @@ public class HomeController {
     return mov;
   }
 
-  @GetMapping("/lista-perfiles")
-  public ModelAndView listaPerfil() {
-    ModelAndView mov= new ModelAndView(ViewRouteHelper.PERFILES);
-    List<PerfilModel> list = perfilService.listPerfil();
-    mov.addObject("listaPerfiles", list);
-    return mov;
-  }
-
-  @GetMapping(value = "/perfiles-pdf", produces = MediaType.APPLICATION_PDF_VALUE)
-  public ResponseEntity<InputStreamResource> perfilReporte()
-      throws IOException {
-    ByteArrayInputStream pdf = perfilService.generacionPdf();
-    HttpHeaders headers = new HttpHeaders();
-    headers.add("Content-Disposition", "inline; filename=ListaPerfiles.pdf");
-    return ResponseEntity.ok().headers(headers).contentType(MediaType.APPLICATION_PDF)
-        .body(new InputStreamResource(pdf));
-  }
 
   @GetMapping(value = "/usuarios-pdf", produces = MediaType.APPLICATION_PDF_VALUE)
   public ResponseEntity<InputStreamResource> usuarioReporte()

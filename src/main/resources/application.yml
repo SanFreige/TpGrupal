@@ -12,3 +12,7 @@ spring:
           dialect: org.hibernate.dialect.MySQL5Dialect
   thymeleaf:
     cache: false
+server:
+  error:
+    whitelabel:
+        enabled: false

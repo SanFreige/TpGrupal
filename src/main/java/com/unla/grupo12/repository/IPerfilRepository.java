@@ -11,8 +11,8 @@ import org.springframework.stereotype.Repository;
 @Repository("perfilRepository")
 public interface IPerfilRepository extends JpaRepository<Perfil, Serializable> {
 
-	public abstract Perfil findById(long id);
+	 Perfil findById(long id);
 
-	public abstract Perfil findByNombre(String nombre);
+	 Perfil findByNombre(String nombre);
 
 }

@@ -8,12 +8,18 @@ import com.unla.grupo12.model.PerfilModel;
 
 public interface IPerfilService{
 
-	
-	public PerfilModel agregarOActualizar(PerfilModel perfilModel);
-	public List<Perfil> getAll();
+
+	 PerfilModel agregar(PerfilModel perfilModel);
+	 List<Perfil> getAll();
+
+	PerfilModel modificar (PerfilModel perfilModel) throws Exception;
+
+	PerfilModel findById(Long id);
+
+		boolean darDeBaja(Long id) throws Exception;
 	
 	List<PerfilModel> listPerfil();
-	public ByteArrayInputStream generacionPdf ();
+	 ByteArrayInputStream generacionPdf ();
 	
 	
 
