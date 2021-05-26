@@ -163,17 +163,27 @@
 					<div class="control-group from group">
 						<div class="controls">
 							<label> Tipo de Perfil &nbsp&nbsp</label>
-							<select>
+							<select th:field="*{perfil.id}">
 
 								<tr th:each="perfil: ${perfiles}">
 
-									<option value="perfil.id"> <span th:text="${perfil.nombre}"></option>
-
+									<option th:value="${perfil.id}"> <span th:text="${perfil.nombre}"></option>
 
 								</tr>
 
 
+
 							</select>
+							
+							<div class="control-group form-group">
+						<div class="controls">
+							<label>Contraseña:</label>
+
+							<input type="password" th:field="*{clave}" class="form-control" id="password" required
+								data-validation-required-message="Ingresa una contraseña">
+						</div>
+					</div>
+							
 						</div>
 					</div>
 

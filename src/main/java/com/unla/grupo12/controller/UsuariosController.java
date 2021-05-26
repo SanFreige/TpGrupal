@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
+import com.unla.grupo12.converter.PerfilConverter;
+import com.unla.grupo12.converter.UsuarioConverter;
 import com.unla.grupo12.entity.Perfil;
 import com.unla.grupo12.entity.Usuario;
 import com.unla.grupo12.helpers.ViewRouteHelper;
@@ -38,6 +40,10 @@ public class UsuariosController {
 	@Autowired
 	@Qualifier("perfilService")
 	private IPerfilService perfilService;
+	
+	@Autowired
+	@Qualifier("perfilConverter")
+	private PerfilConverter perfilConverter;
 
 	
 	
@@ -104,6 +110,11 @@ public class UsuariosController {
 		RedirectView redirect = new RedirectView("/lista-usuarios", false);
 		
 		//AGREGA EL MODELO A LA BASE DE DATOS A TRAVES DEL SERVICIO 
+		long idPerfil = usuarioModel.getPerfil().getId();
+		Perfil perfil = perfilConverter.modelToEntity(perfilService.findById(idPerfil));
+		
+		usuarioModel.setPerfil(perfil);
+		
 		usuarioService.agregarOActualizar(usuarioModel);
 		
 		
@@ -137,15 +148,16 @@ public class UsuariosController {
 	public RedirectView actualizarUsuario(@PathVariable("id") Long id, @ModelAttribute("usuario") UsuarioModel usuarioModel) {
 		
 		
-		UsuarioModel usuarioOriginal = usuarioService.findById(id);
+		long idPerfil = usuarioModel.getPerfil().getId();
+		Perfil perfil = perfilConverter.modelToEntity(perfilService.findById(idPerfil));
 		
-		usuarioModel.setClave(usuarioOriginal.getClave());
+		usuarioModel.setPerfil(perfil);
 		
 		
 		usuarioService.agregarOActualizar(usuarioModel);
 		
 		//REDIRECCIONA A LA VISTA DE USUARIOS
-		RedirectView redirect = new RedirectView("../");
+		RedirectView redirect = new RedirectView("/lista-usuarios/", false);
 		
 		
 		
@@ -161,7 +173,7 @@ public class UsuariosController {
 		usuarioService.darDeBaja(id);
 		
 		//REDIRECCIONA A LA VISTA DE USUARIOS
-		RedirectView redirect = new RedirectView("..");
+		RedirectView redirect = new RedirectView("/lista-usuarios/", false);
 		
 		
 		

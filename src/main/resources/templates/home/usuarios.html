@@ -110,7 +110,7 @@
 						<span th:text="${usuario.perfil.getNombre()}"> </span>
 					</td>
 
-					<td> <span th:text="${usuario.isActivo} ? 'SI':'NO'"> </td>
+					<td> <span th:text="${usuario.isActivo()} ? 'SI':'NO'"> </td>
 
 					<td> <a class="btn btn-primary" th:href="@{'usuarios/editar/' + ${usuario.id}}"> Editar </a> </td>
 

@@ -6,6 +6,8 @@ import com.unla.grupo12.model.PerfilModel;
 import com.unla.grupo12.repository.IPerfilRepository;
 import com.unla.grupo12.service.IPerfilService;
 
+import lombok.Builder;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,13 +53,13 @@ public class PerfilServiceImpl implements IPerfilService {
 
 	@Override
 	public PerfilModel modificar(PerfilModel perfilModel) throws Exception{
-		PerfilModel modelo = this.findById(perfilModel.getId());
+		/*PerfilModel modelo = this.findById(perfilModel.getId());
 		if(modelo == null)throw new Exception("Perfil no encontrado");
 		Perfil perfil = Perfil.builder()
 				.id(modelo.getId())
 				.nombre(perfilModel.getNombre())
-				.build();
-		return perfilConverter.entityToModel(perfilRepository.save(perfil));
+				.build();*/
+		return perfilConverter.entityToModel(perfilRepository.save(null));
 	}
 
 	@Override

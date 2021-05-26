@@ -30,7 +30,7 @@ public class Usuario {
 	
 	
 	public Usuario(Long id, String nombre, String apellido, Long nroDocumento, String tipoDocumento, String email,
-			String usuario, String clave, boolean activo){
+			String usuario, String clave, boolean activo, Perfil perfil){
 		super();
 		this.id = id;
 		this.nombre = nombre;
@@ -41,6 +41,7 @@ public class Usuario {
 		this.usuario = usuario;
 		this.clave = clave;
 		this.setActivo(true); //AL MOMENTO DE AGREGAR UN USUARIO SETEA ESTE VALOR COMO TRUE
+		this.perfil = perfil;
 	}
 	
 	

@@ -54,14 +54,14 @@ public class UsuarioConverter {
 	public Usuario modelToEntity(UsuarioModel usuarioModel) {
 		
 		return new Usuario(usuarioModel.getId(), usuarioModel.getNombre(), usuarioModel.getApellido(), usuarioModel.getNroDocumento(), 
-				usuarioModel.getTipoDocumento(), usuarioModel.getEmail(), usuarioModel.getUsuario(), usuarioModel.getClave(),usuarioModel.isActivo());
+				usuarioModel.getTipoDocumento(), usuarioModel.getEmail(), usuarioModel.getUsuario(), usuarioModel.getClave(),usuarioModel.isActivo(), usuarioModel.getPerfil());
 	}
 
 	public UsuarioModel entityToModel(Usuario usuario) {
 		
 		
 		return new UsuarioModel(usuario.getId(), usuario.getNombre(), usuario.getApellido(), usuario.getNroDocumento(), 
-				usuario.getTipoDocumento(), usuario.getEmail(), usuario.getUsuario(), usuario.getClave(), usuario.isActivo());
+				usuario.getTipoDocumento(), usuario.getEmail(), usuario.getUsuario(), usuario.getClave(), usuario.isActivo(), usuario.getPerfil());
 	}
 
 }

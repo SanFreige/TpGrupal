@@ -20,17 +20,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.RequestParam;
 
-
 import org.springframework.web.servlet.ModelAndView;
 
-
 import com.unla.grupo12.helpers.ViewRouteHelper;
-
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.util.List;
-
 
 //REALIZA UN MAPEO HACIA localhost:8080/
 
@@ -39,26 +35,22 @@ import java.util.List;
 
 public class HomeController {
 
-	
 	@Autowired
-	  private IUsuarioService usuarioService;
+	private IUsuarioService usuarioService;
 
+	// Solo se puede acceder al index con un usuario que tenga como perfil Admin
 
-
-	
-	//Solo se puede acceder al index con un usuario que tenga como perfil Admin
-	
 	@PreAuthorize("hasAuthority('Admin')")
 	@GetMapping("/")
 	public String index() {
-		
+
 		return ViewRouteHelper.INDEX;
-		
+
 	}
-	
-	
+
 	@GetMapping("/login")
-	public String login(Model model, @RequestParam(name = "error", required = false) String error, @RequestParam(name = "logout", required = false) String logout) {
+	public String login(Model model, @RequestParam(name = "error", required = false) String error,
+			@RequestParam(name = "logout", required = false) String logout) {
 
 		model.addAttribute("error", error);
 		model.addAttribute("logout", logout);
@@ -81,22 +73,21 @@ public class HomeController {
 
 	}
 
-  @GetMapping("/lista-usuarios")
-  public ModelAndView listaUsuario() {
-    ModelAndView mov= new ModelAndView(ViewRouteHelper.USUARIOS);
-    List<UsuarioModel> list = usuarioService.listUsuarios();
-    mov.addObject("listaUsuarios", list);
-    return mov;
-  }
+	
+	@GetMapping("/lista-usuarios")
+	public ModelAndView listaUsuario() {
+		ModelAndView mov = new ModelAndView(ViewRouteHelper.USUARIOS);
+		List<UsuarioModel> list = usuarioService.listUsuarios();
+		mov.addObject("listaUsuarios", list);
+		return mov;
+	}
 
-
-  @GetMapping(value = "/usuarios-pdf", produces = MediaType.APPLICATION_PDF_VALUE)
-  public ResponseEntity<InputStreamResource> usuarioReporte()
-      throws IOException {
-    ByteArrayInputStream pdf = usuarioService.generacionPdf();
-    HttpHeaders headers = new HttpHeaders();
-    headers.add("Content-Disposition", "inline; filename=ListaUsuarios.pdf");
-    return ResponseEntity.ok().headers(headers).contentType(MediaType.APPLICATION_PDF)
-        .body(new InputStreamResource(pdf));
-  }
+	@GetMapping(value = "/usuarios-pdf", produces = MediaType.APPLICATION_PDF_VALUE)
+	public ResponseEntity<InputStreamResource> usuarioReporte() throws IOException {
+		ByteArrayInputStream pdf = usuarioService.generacionPdf();
+		HttpHeaders headers = new HttpHeaders();
+		headers.add("Content-Disposition", "inline; filename=ListaUsuarios.pdf");
+		return ResponseEntity.ok().headers(headers).contentType(MediaType.APPLICATION_PDF)
+				.body(new InputStreamResource(pdf));
+	}
 }
