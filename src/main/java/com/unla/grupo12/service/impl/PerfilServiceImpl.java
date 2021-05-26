@@ -53,12 +53,12 @@ public class PerfilServiceImpl implements IPerfilService {
 
 	@Override
 	public PerfilModel modificar(PerfilModel perfilModel) throws Exception{
-		/*PerfilModel modelo = this.findById(perfilModel.getId());
+		PerfilModel modelo = this.findById(perfilModel.getId());
 		if(modelo == null)throw new Exception("Perfil no encontrado");
 		Perfil perfil = Perfil.builder()
 				.id(modelo.getId())
 				.nombre(perfilModel.getNombre())
-				.build();*/
+				.build();
 		return perfilConverter.entityToModel(perfilRepository.save(null));
 	}
 
