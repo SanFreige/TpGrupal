@@ -67,6 +67,7 @@ public class PerfilController {
     return modelo;
   }
 
+  @PreAuthorize("hasAuthority('Admin')")
   @PostMapping("actualizar/{id}")
   public RedirectView actualizarPerfil(@PathVariable("id") Long id, @ModelAttribute("perfil") PerfilModel perfilModel) throws Exception {
 

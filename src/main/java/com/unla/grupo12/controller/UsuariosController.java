@@ -79,7 +79,7 @@ public class UsuariosController {
 	 * 
 	 * 
 	 */
-	
+	@PreAuthorize("hasAuthority('Admin')")
 	@GetMapping("agregar")
 	public ModelAndView agregarUsuario() {
 
@@ -102,7 +102,7 @@ public class UsuariosController {
 	 * SE AGREGA EL UsuarioModel A LA BD
 	 * 
 	 */
-	
+	@PreAuthorize("hasAuthority('Admin')")
 	@PostMapping("agregar")
 	public RedirectView agregarUsuario(@ModelAttribute("usuario") UsuarioModel usuarioModel) {
 		
@@ -122,7 +122,7 @@ public class UsuariosController {
 		return redirect;
 	}
 	
-	
+	@PreAuthorize("hasAuthority('Admin')")
 	@GetMapping("editar/{id}")
 	public ModelAndView editarUsuario(@PathVariable("id") Long id) {
 
@@ -144,7 +144,7 @@ public class UsuariosController {
 	
 	
 	
-	
+	@PreAuthorize("hasAuthority('Admin')")
 	@PostMapping("actualizar/{id}")
 	public RedirectView actualizarUsuario(@PathVariable("id") Long id, @ModelAttribute("usuario") UsuarioModel usuarioModel) {
 		
@@ -167,6 +167,7 @@ public class UsuariosController {
 	}
 	
 	//BAJA LOGICA DE LA BASE DE DATOS
+	@PreAuthorize("hasAuthority('Admin')")
 	@GetMapping("eliminar/{id}")
 	public RedirectView actualizarUsuario(@PathVariable("id") Long id) {
 		

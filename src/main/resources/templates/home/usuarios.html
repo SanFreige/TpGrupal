@@ -32,9 +32,7 @@
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav ml-auto">
 
-					<li class="nav-item">
-						<a class="nav-link" href="/usuarios/agregar">Agregar Usuarios</a>
-					</li>
+					
 					<li class="nav-item">
 						<a class="nav-link" href="/lista-usuarios">Usuarios</a>
 					</li>
@@ -93,7 +91,7 @@
 					<th> Email </th>
 					<th> Documento </th>
 					<th> Perfil </th>
-					<th> Activo </th>
+					
 				</tr>
 			</thead>
 			<tbody>
@@ -110,7 +108,7 @@
 						<span th:text="${usuario.perfil.getNombre()}"> </span>
 					</td>
 
-					<td> <span th:text="${usuario.isActivo()} ? 'SI':'NO'"> </td>
+					
 
 					<td> <a class="btn btn-primary" th:href="@{'/usuarios/editar/' + ${usuario.id}}"> Editar </a> </td>
 
@@ -123,7 +121,7 @@
 
 		</table>
 
-
+		<a class="btn btn-primary" th:href="@{/usuarios/agregar}"> Agregar</a> </td>
 		<a class="btn btn-primary" th:href="@{/usuarios-pdf}" target="_blank"> Generar PDF</a> </td>
 
 		<p> </p>

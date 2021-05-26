@@ -2,6 +2,7 @@ package com.unla.grupo12.controller;
 
 import org.springframework.security.access.prepost.PreAuthorize;
 
+import com.unla.grupo12.entity.Perfil;
 import com.unla.grupo12.helpers.ViewRouteHelper;
 import com.unla.grupo12.model.PerfilModel;
 import com.unla.grupo12.model.UsuarioModel;
@@ -61,7 +62,8 @@ public class HomeController {
 
 	@GetMapping("/logout")
 	public String logout(Model model) {
-
+		
+		usuarioService.logoutUsuario();
 		return ViewRouteHelper.LOGOUT;
 
 	}
@@ -80,10 +82,11 @@ public class HomeController {
 		ModelAndView mov = new ModelAndView(ViewRouteHelper.USUARIOS);
 		List<UsuarioModel> list = usuarioService.listUsuarios();
 		mov.addObject("listaUsuarios", list);
+		
 		return mov;
 	}
 
-	@PreAuthorize("hasAnyAuthority('Auditoria')")
+	
 	@GetMapping(value = "/usuarios-pdf", produces = MediaType.APPLICATION_PDF_VALUE)
 	public ResponseEntity<InputStreamResource> usuarioReporte() throws IOException {
 		ByteArrayInputStream pdf = usuarioService.generacionPdf();
