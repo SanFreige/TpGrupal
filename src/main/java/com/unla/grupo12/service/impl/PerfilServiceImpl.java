@@ -59,7 +59,7 @@ public class PerfilServiceImpl implements IPerfilService {
 				.id(modelo.getId())
 				.nombre(perfilModel.getNombre())
 				.build();
-		return perfilConverter.entityToModel(perfilRepository.save(null));
+		return perfilConverter.entityToModel(perfilRepository.save(perfil));
 	}
 
 	@Override
