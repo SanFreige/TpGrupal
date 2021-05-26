@@ -40,7 +40,7 @@ public class HomeController {
 
 	// Solo se puede acceder al index con un usuario que tenga como perfil Admin
 
-	@PreAuthorize("hasAuthority('Admin')")
+	@PreAuthorize("hasAnyAuthority('Admin', 'Auditoria')")
 	@GetMapping("/")
 	public String index() {
 
@@ -74,6 +74,7 @@ public class HomeController {
 	}
 
 	
+	
 	@GetMapping("/lista-usuarios")
 	public ModelAndView listaUsuario() {
 		ModelAndView mov = new ModelAndView(ViewRouteHelper.USUARIOS);
@@ -82,6 +83,7 @@ public class HomeController {
 		return mov;
 	}
 
+	@PreAuthorize("hasAnyAuthority('Auditoria')")
 	@GetMapping(value = "/usuarios-pdf", produces = MediaType.APPLICATION_PDF_VALUE)
 	public ResponseEntity<InputStreamResource> usuarioReporte() throws IOException {
 		ByteArrayInputStream pdf = usuarioService.generacionPdf();
