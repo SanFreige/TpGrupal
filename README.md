@@ -9,8 +9,7 @@ para loguearse, la clave debe estar encriptada con el metodo new BCryptPasswordE
 - Dentro de la pestaña "Usuarios" se pueden agregar, eliminar o editar los usuarios que hay en la base de datos, ademas se puede generar un archivo PDF con el listado de usuarios.
 
 - Dentro de la pestaña "Agregar Usuarios" se creo un formulario para poder agregar a un nuevo usuario. Con el boton "Registrar" se agrega un nuevo usuario a la BD redireccionando a la lista de usuarios para visualizarlo
-
--Un usuario con el perfil Admin, puede editar, agregar o eliminar un usuario o perfil, mientras que uno con el perfil Auditoria solo puede generar el reporte en un pdf, en caso de querer modificar algo saltara a la vista de error por falta de permiso.
+- Un usuario con el perfil Admin, puede editar, agregar o eliminar un usuario o perfil, mientras que uno con el perfil Auditoria solo puede generar el reporte en un pdf, en caso de querer modificar algo saltara a la vista de error por falta de permiso.
 
 
 
