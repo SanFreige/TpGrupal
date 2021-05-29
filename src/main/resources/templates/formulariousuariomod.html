@@ -1,0 +1,32 @@
+<DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<title>formulario</title>
+</head>
+<body>
+		<h1> Datos personales</h1>
+		<form action="#" th:action="@{/form/modificarusuario}" th:object="${usuarios}" method="post">
+			<input type="hidden" th:field="*{id}"></input>
+			
+			<p><input type ="text" placeholder="Nombre" th:field="*{nombre}" th:value="${nombre}"/></p>
+			<p><input type ="text" placeholder="Apellido" th:field="*{apellido}" th:value="${apellido}"/></p>
+			<p><input type ="text" placeholder="Tipo Documento" th:field="*{tipoDocumento}" th:value="${tipoDocumento}"/></p>
+			<p><input type ="text" placeholder="Nro Documento" th:field="*{nroDocumento}" th:value="${nroDocumento}"/></p>
+			<p><input type ="text" placeholder="Nombre De Usuario" th:field="*{username}" th:value="${username}"/></p>
+			<p><input type ="password" placeholder="Password" th:field="*{password}" th:value="${password}"/></p>
+			<p><input type="submit" value="enviar"></p>
+		</form>
+		
+		<a href="#" th:href="@{/form/redirectindex}">
+				<button type="button" class="brn btn.danger">volver</button>
+		</a>
+</body>
+</html>
+
+<!-- 
+	
+	
+	
+	
+-->

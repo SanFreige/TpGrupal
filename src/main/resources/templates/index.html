@@ -1,0 +1,27 @@
+<DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<title>Bienvenido</title>
+</head>
+<body>
+<link href="/css/index.css" rel="stylesheet" />
+<div class="container">
+<a href="#" class="button"  th:href="@{/list/listusuarios}"><span>✓</span>ver usuarios</a>
+<a href="#" class="button orange active" th:href="@{/list/listperfiles}"><span>✓</span>ver perfiles</a>
+<a href="#" class="button purple" th:href="@{/form/formusuario?id=0}"><span>✓</span>agregar usuario</a>
+<a href="#" class="button turquoise" th:href="@{/form/formperfil?id=0}"><span>✓</span>agregar perfil</a>
+<a href="#" class="button red" th:href="@{/export/pdfusuarios}"><span>✓</span>imprimir usuarios</a>
+<a href="#" class="button" th:href="@{/export/pdfperfil}"><span>✓</span>imprimir perfiles</a>
+
+
+<form th:action="@{/logout}" method="POST">
+		<button type="submit" class ="button orange active"><span>✓</span>Salir</button>
+</form>
+
+</div>
+	
+
+
+</body>
+</html>

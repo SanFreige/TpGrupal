@@ -1,0 +1,48 @@
+<DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<title>LISTA</title>
+</head>
+<body>
+	<table border="1">
+		<thead>
+			<tr>
+				<th>Id   </th>
+				<th>Rol</th> 
+				<th>Id usuario</th>
+				
+				
+			</tr>
+		</thead>
+		
+		<tbody th:each="perfil : ${perfiles}">
+			<tr>
+				<td th:text="${perfil.id}"></td>
+				<td th:text="${perfil.rol}"></td>
+				<td th:text="${perfil.usuario_id}"></td>
+				
+				
+				<td>					
+					<a href="#" th:href="@{/form/removeperfil?id=__${perfil.id}__}">
+						<button type="button" class="brn btn.danger">eliminar</button>
+					</a>									
+				</td>
+				<td>					
+					<a href="#" th:href="@{/asignar/elejirusuario?id=__${perfil.id}__}">
+						<button type="button" class="brn btn.danger">Asignar Usuario</button>
+					</a>
+										
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	
+	
+	
+	<a href="#" th:href="@{/form/redirectindex}">
+				<button type="button" class="brn btn.danger">volver</button>
+		</a>
+
+</body>
+</html>

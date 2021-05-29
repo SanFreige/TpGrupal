@@ -1,0 +1,27 @@
+<DOCTYPE html>
+<html>
+<link href='https://fonts.googleapis.com/css?family=Ubuntu:500' rel='stylesheet' type='text/css'>
+
+<link href="/css/styles.css" rel="stylesheet" />
+<head>
+<meta charset="UTF-8"/>
+<title>formulario</title>
+</head>
+<body>
+		<h1> Datos personales</h1>
+		<form action="#" th:action="@{/auth/registro2}" th:object="${usuario}" method="post">
+			<input type="hidden" th:field="*{id}"></input>
+			
+			<p><input type ="text" placeholder="Nombre" th:field="*{nombre}" th:value="${nombre}"/></p>
+			<p><input type ="text" placeholder="Apellido" th:field="*{apellido}" th:value="${apellido}"/></p>
+			<p><input type ="text" placeholder="email" th:field="*{email}" th:value="${email}"/></p>
+			<p><input type ="text" placeholder="username" th:field="*{username}" th:value="${username}"/></p>			
+			<p><input type ="text" placeholder="Password" th:field="*{password}" th:value="${password}"/></p>
+			<p><input type="submit" value="enviar"></p>
+		</form>
+</body>
+</html>
+
+<!-- 
+	
+-->

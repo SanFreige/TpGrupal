@@ -1,0 +1,23 @@
+<DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<title>formulario</title>
+</head>
+<body>
+		<h1> Correo Electronico</h1>
+		
+		
+		<form action="#" th:action="@{/form/addcontacto}" th:object="${contacto}" method="post">
+			<p><input type ="text" placeholder="Email" th:field="*{email}" /></p>			
+			<p><input type="submit" value="enviar"></p>
+		</form>
+</body>
+</html>
+
+<!-- 
+	
+	
+	
+	
+-->

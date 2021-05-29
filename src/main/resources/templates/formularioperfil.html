@@ -1,0 +1,25 @@
+<DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<title>formulario</title>
+</head>
+<body>
+		<h1> Tipo de Usuario</h1>
+		<form action="#" th:action="@{/form/addperfil}" th:object="${perfil}" method="post">
+			<p><input type ="text" placeholder="ROL" th:field="*{rol}" /></p>
+			<p><input type="submit" value="enviar"></p>
+		</form>
+		
+		<a href="#" th:href="@{/form/redirectindex}">
+				<button type="button" class="brn btn.danger">volver</button>
+		</a>
+</body>
+</html>
+
+<!-- 
+	
+	
+	
+	
+-->
