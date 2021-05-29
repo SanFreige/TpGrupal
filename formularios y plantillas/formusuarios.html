@@ -1,0 +1,53 @@
+<DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<title>formulario</title>
+</head>
+<body>
+<link href="/css/form.css" rel="stylesheet" />
+<header>
+	<h1>formulario</h1>
+</header>
+
+<div id="form">
+
+<div class="fish" id="fish"></div>
+<div class="fish" id="fish2"></div>
+
+<form id="waterform" th:action="@{/form/addusuario}" th:object="${usuarios}" method="post">
+
+			<div class="formgroup" id="name-form">
+			    <label for="name">nombre</label>
+			    <input type ="text" placeholder="Nombre" th:field="*{nombre}" th:value="${nombre}"/>
+			</div>
+			
+			<div class="formgroup" id="email-form">
+			    <label for="email">apellido</label>
+			    <input type ="text" placeholder="Apellido" th:field="*{apellido}" th:value="${apellido}"/>
+			</div>
+			
+			<div class="formgroup" id="message-form">
+			    <label for="message">tipo documento</label>
+			    <input type ="text" placeholder="Tipo Documento" th:field="*{tipoDocumento}" th:value="${tipoDocumento}"/>
+			</div>
+			<div class="formgroup" id="message-form">
+			    <label for="message">numero documento</label>
+			   <input type ="text" placeholder="Nro Documento" th:field="*{nroDocumento}" th:value="${nroDocumento}"/>
+			</div>
+			<div class="formgroup" id="message-form">
+			    <label for="message">username</label>
+			    <input type ="text" placeholder="Nombre De Usuario" th:field="*{username}" th:value="${username}"/>
+			</div>
+			<div class="formgroup" id="message-form">
+			    <label for="message">password</label>
+			    <input type ="password" placeholder="Password" th:field="*{password}" th:value="${password}"/>
+			</div>
+			
+				<input type="submit" value="enviar" />
+</form>
+			
+</div>
+ <script src="/js/form.js"></script>
+</body>
+</html>
