@@ -1,30 +1,20 @@
 package com.unla.grupo12.service.impl;
 
-import com.unla.grupo12.converter.PerfilConverter;
-import com.unla.grupo12.entity.Perfil;
-import com.unla.grupo12.model.PerfilModel;
-import com.unla.grupo12.repository.IPerfilRepository;
-import com.unla.grupo12.service.IPerfilService;
-
-import lombok.Builder;
-
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-
 import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
+import com.unla.grupo12.converter.PerfilConverter;
+import com.unla.grupo12.entity.Perfil;
 import com.unla.grupo12.model.PerfilModel;
 import com.unla.grupo12.repository.IPerfilRepository;
 import com.unla.grupo12.service.IPerfilService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -55,11 +45,7 @@ public class PerfilServiceImpl implements IPerfilService {
 	public PerfilModel modificar(PerfilModel perfilModel) throws Exception{
 		PerfilModel modelo = this.findById(perfilModel.getId());
 		if(modelo == null)throw new Exception("Perfil no encontrado");
-		Perfil perfil = new Perfil(modelo.getId(), modelo.getNombre());
-		/*Perfil perfil = Perfil.builder()
-				.id(modelo.getId())
-				.nombre(perfilModel.getNombre())
-				.build(); */
+		Perfil perfil = new Perfil(modelo.getId(), perfilModel.getNombre());
 		return perfilConverter.entityToModel(perfilRepository.save(perfil));
 	}
 
