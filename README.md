@@ -13,3 +13,4 @@ para loguearse, la clave debe estar encriptada con el metodo new BCryptPasswordE
 -Un usuario con el perfil Admin, puede editar, agregar o eliminar un usuario o perfil, mientras que uno con el perfil Auditoria solo puede generar el reporte en un pdf, en caso de querer modificar algo saltara a la vista de error por falta de permiso.
 
 
+
