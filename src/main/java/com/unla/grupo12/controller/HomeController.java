@@ -3,6 +3,7 @@ package com.unla.grupo12.controller;
 import org.springframework.security.access.prepost.PreAuthorize;
 
 import com.unla.grupo12.entity.Perfil;
+import com.unla.grupo12.entity.Usuario;
 import com.unla.grupo12.helpers.ViewRouteHelper;
 import com.unla.grupo12.model.PerfilModel;
 import com.unla.grupo12.model.UsuarioModel;
@@ -17,6 +18,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.RequestParam;
@@ -76,6 +79,7 @@ public class HomeController {
 	}
 
 	
+
 	
 	@GetMapping("/lista-usuarios")
 	public ModelAndView listaUsuario() {

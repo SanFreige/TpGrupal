@@ -57,6 +57,15 @@ public class PerfilServiceImpl implements IPerfilService {
 		}
 		return null;
 	}
+	
+	
+	@Override
+	public PerfilModel findByNombre(String name) {
+		Perfil resultado = perfilRepository.findByNombre(name);
+		
+		return perfilConverter.entityToModel(resultado);
+	}
+
 
 	@Override
 	public boolean darDeBaja(Long id) throws Exception {
@@ -135,4 +144,7 @@ public class PerfilServiceImpl implements IPerfilService {
 		return new ByteArrayInputStream(out.toByteArray());
 	}
 
+	
+
+	
 }
