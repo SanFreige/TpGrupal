@@ -1,9 +1,5 @@
 package com.unla.grupo12.model;
 
-import lombok.Data;
-
-@Data
-
 public class PerfilModel {
 
 	private Long id;

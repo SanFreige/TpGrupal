@@ -1,13 +1,10 @@
 package com.unla.grupo12.entity;
 
-import lombok.Builder;
-import lombok.Data;
-
 import javax.persistence.*;
 
 @Entity
 @Table(name = "perfil")
-@Builder
+
 public class Perfil {
 
 	@Id

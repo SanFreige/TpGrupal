@@ -5,7 +5,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import com.unla.grupo12.entity.Perfil;
 import lombok.Data;
 
-@Data
+
 public class UsuarioModel {
 
 	private Long id;
