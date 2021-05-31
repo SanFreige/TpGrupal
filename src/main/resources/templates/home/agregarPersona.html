@@ -30,7 +30,7 @@
 			<div class="collapse navbar-collapse" id="navbarText">
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 					<li class="nav-item">
-						<a class="nav-link active " href="/login">Iniciar Sesión</a>
+						<a class="nav-link " href="/login">Iniciar Sesión</a>
 					</li>
 
 					<li class="nav-item">
@@ -41,7 +41,7 @@
 						<ul class="navbar-nav ml-auto">
 
 							<li class="nav-item">
-								<a class="nav-link" href="/persona">Agregar Persona</a>
+								<a class="nav-link active" href="/persona">Agregar Persona</a>
 							</li>
 
 					</div>
@@ -66,46 +66,53 @@
 
 				</ul>
 
+
 				<span class="navbar-text">
 					Objetos II - 2021
 				</span>
+			</div>
 
+
+		</div>
 	</nav>
 
 	<div class="container">
 		<div class="col-12 col-md-6 col-lg-4 mx-auto mt-5">
 			<div class="card">
-				<img src="https://images.pexels.com/photos/3585089/pexels-photo-3585089.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-					class="card-img-top" alt="Login image">
+
 				<div class="card-body">
-					<h2 class="text-center">Iniciar Sesión</h2>
-					<form th:action="@{/loginprocess}" id="contactForm" method="post">
+					<h2 class="text-center">Agregar Persona</h2>
 
-						<div class="control-group form-group">
-							<div class="controls">
 
-								<label>Usuario</label>
-								<input type="text" class="form-control" name="username" id="username"
-									placeholder="Usuario" required
-									data-validation-required-message="Ingresa tu usuario" />
-								<p class="help-block"></p>
-							</div>
-						</div>
+				<form>
+				
+				<div class="control-group form-group">
+				
+				
+				<div class="controls">
+					<label> Nombre </label>
+					<input type="text" class="form-control"required data-validation-required-message="Ingrese el nombre">				
+				</div>
+				
+				
+				<div class="controls">
+					<label> Apellido </label>
+					<input type="text" class="form-control"required data-validation-required-message="Ingrese el apellido">				
+				</div>
+				
+				
+				<div class="controls">
+					<label> DNI </label>
+					<input type="text" class="form-control"required data-validation-required-message="Ingrese el dni">				
+				</div>
+				
+				
+				<p> </p>
+				<button type="submit" class="btn btn-primary" id="sendMessageButton">Agregar</button>
+				
+				
+				</form>
 
-						<div class="control-group form-group">
-							<div class="controls">
-								<label>Clave</label>
-								<input type="password" class="form-control" name="password" id="password"
-									placeholder="Contraseña" />
-								<p> </p>
-								<button type="submit" class="btn btn-primary" id="sendlogin">Login </button>
-							</div>
-						</div>
-
-					</form>
-					<div th:if="${error != null}" class="alert alert-danger">
-						Usuario o contraseña incorrecta.
-					</div>
 				</div>
 			</div>
 		</div>
