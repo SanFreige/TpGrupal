@@ -19,6 +19,7 @@
 </head>
 
 <body>
+
 	<!-- Navigation -->
 	<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
 		<div class="container">
@@ -69,7 +70,7 @@
 	<div class="container">
 
 		<!-- Page Heading/Breadcrumbs -->
-		<h1 class="mt-4 mb-3">Perfiles en la BD
+		<h1 class="mt-4 mb-3">Permisos
 			<small></small>
 		</h1>
 
@@ -77,63 +78,85 @@
 			<li class="breadcrumb-item">
 				<a href="/">Home</a>
 			</li>
-			<li class="breadcrumb-item active">Perfiles</li>
+			<li class="breadcrumb-item active">Permisos</li>
 		</ol>
 
-		<!-- Intro Content -->
+
+		<div class="container">
+
+			<div class="col-12 col-md-6 col-lg-4 mx-auto mt-5">
+				<h1 class="text-center"> Ver permisos</h1>
+
+				<form>
+
+					<div class="controls">
+						<label> Desde </label>
+						<input type="date" class="form-control" required
+							data-validation-required-message="Ingrese la fecha">
+						<p> </p>
+					</div>
 
 
-		<!-- Team Members -->
+					<div class="controls">
+						<label> Hasta </label>
+						<input type="date" class="form-control" required
+							data-validation-required-message="Ingrese la fecha">
+						<p> </p>
+					</div>
 
 
-		<table cellpadding="5">
 
-			<thead>
-				<tr>
-					<th> Id </th>
-					<th> Perfil </th>
-				</tr>
+					<p> </p>
+					<button type="submit" class="btn btn-primary" id="sendMessageButton">Ver</button>
+					<p> </p>
 
-			</thead>
+				</form>
 
-			<tbody>
+			</div>
 
-				<tr th:each="perfil: ${listaPerfiles}">
 
-					<td> <span th:text="${perfil.id}" /> </td>
-					<td> <span th:text="${perfil.nombre}" /> </td>
-					<td> <a class="btn btn-primary" th:href="@{'/perfiles/editar/' + ${perfil.id}}"> Editar </a> </td>
+			<table cellpadding="5">
 
-					<td> <a class="btn btn-primary" th:href="@{'/perfiles/eliminar/' + ${perfil.id}}"> Eliminar</a>
-					</td>
-				</tr>
-			</tbody>
+				<thead>
+					<tr>
+						<th> Permiso </th>
+						<th> Desde </th>
+						<th> Hasta </th>
+					</tr>
 
-		</table>
+				</thead>
 
-		<a class="btn btn-primary" th:href="@{/perfiles/editar/0}">Agregar</a> </td>
-		<a class="btn btn-primary" th:href="@{/perfiles/perfiles-pdf}" target="_blank"> Generar PDF</a> </td>
+				<tbody>
 
-		<p> </p>
+					<tr>
+						<td th:text="${permiso.motivo}"> </td>
+						<td> fecha desde</td>
+						<td> fecha hasta</td>
+						
+						
+					</tr>
+				</tbody>
+
+			</table>
+		</div>
+
+
+
+
 
 	</div>
-	<!-- /.container -->
 
 	<!-- Footer -->
 	<footer class="py-5 bg-dark">
 		<div class="container">
 			<p class="m-0 text-center text-white">Copyright &copy; Your Website 2020</p>
 		</div>
-
-
 		<!-- /.container -->
 	</footer>
 
 	<!-- Bootstrap core JavaScript -->
 	<script src="vendor/jquery/jquery.min.js"></script>
 	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-
 
 </body>
 

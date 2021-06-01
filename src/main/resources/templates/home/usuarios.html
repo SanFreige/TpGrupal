@@ -32,7 +32,7 @@
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav ml-auto">
 
-					
+
 					<li class="nav-item">
 						<a class="nav-link" href="/lista-usuarios">Usuarios</a>
 					</li>
@@ -43,6 +43,9 @@
 						<a class="nav-link" href="/perfiles/lista-perfiles">Perfiles</a>
 					</li>
 
+					<li class="nav-item">
+						<a class="nav-link" href="/permiso/ver">Permisos</a>
+					</li>
 
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown"
@@ -54,10 +57,14 @@
 
 						</div>
 					</li>
+
+
+
 				</ul>
 			</div>
 		</div>
 	</nav>
+
 
 	<!-- Page Content -->
 	<div class="container">
@@ -91,7 +98,7 @@
 					<th> Email </th>
 					<th> Documento </th>
 					<th> Perfil </th>
-					
+
 				</tr>
 			</thead>
 			<tbody>
@@ -108,7 +115,7 @@
 						<span th:text="${usuario.perfil.getNombre()}"> </span>
 					</td>
 
-					
+
 
 					<td> <a class="btn btn-primary" th:href="@{'/usuarios/editar/' + ${usuario.id}}"> Editar </a> </td>
 

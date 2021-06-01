@@ -16,7 +16,9 @@ public class ViewRouteHelper {
 	
 	public final static String PERSONA_AGREGAR = "home/agregarPersona";
 	
-	public final static String PERMISO_AGREGAR = "home/agregarPermiso";
+	public final static String PERMISOS_AGREGAR = "home/agregarPermiso";
+	
+	public final static String PERMISOS_INDEX = "home/permisos";
 	
 	public final static String RODADO_AGREGAR = "home/agregarRodado";
 	

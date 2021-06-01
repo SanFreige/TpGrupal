@@ -1,10 +1,16 @@
 package com.unla.grupo12.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.unla.grupo12.helpers.ViewRouteHelper;
+import com.unla.grupo12.model.PermisoPeriodoModel;
+import com.unla.grupo12.service.IPermisoPeriodoService;
+import com.unla.grupo12.service.IPermisoService;
 
 
 @Controller
@@ -12,12 +18,29 @@ import com.unla.grupo12.helpers.ViewRouteHelper;
 public class PermisoController {
 
 	
+	
 	@GetMapping("")
 	public String index() {
 		
 		
-		return ViewRouteHelper.PERMISO_AGREGAR;
+		return ViewRouteHelper.PERMISOS_AGREGAR;
 	}
+	
+	
+	@GetMapping("ver")
+	public ModelAndView mostrarPermisosActivos() {
+		
+		ModelAndView mov = new ModelAndView(ViewRouteHelper.PERMISOS_INDEX);
+		
+		
+		return mov;
+	}
+	
+	
+	
+	
+	
+	
 	
 }
 
