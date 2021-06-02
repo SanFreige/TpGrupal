@@ -43,7 +43,6 @@
 							<li class="nav-item">
 								<a class="nav-link active" href="/persona">Agregar Persona</a>
 							</li>
-
 					</div>
 					
 					<div class="collapse navbar-collapse" id="navbarResponsive">
@@ -82,7 +81,7 @@
 
 				<div class="card-body">
 					<h2 class="text-center">Agregar Persona</h2>
-
+					<form action="#" th:action="@{agregar}" th:object="${persona}" method="post">
 
 				<form>
 				
@@ -91,19 +90,22 @@
 				
 				<div class="controls">
 					<label> Nombre </label>
-					<input type="text" class="form-control"required data-validation-required-message="Ingrese el nombre">				
+					<input type="text" th:field="*{nombre}" class="form-control" id="nombre" required data-validation-required-message="Ingrese el nombre">				
+					<p class="help-block"></p>
 				</div>
 				
 				
 				<div class="controls">
 					<label> Apellido </label>
-					<input type="text" class="form-control"required data-validation-required-message="Ingrese el apellido">				
+					<input type="text" th:field="*{apellido}" class="form-control" id="apellido" required data-validation-required-message="Ingrese el apellido">				
+					<p class="help-block"></p>
 				</div>
 				
 				
 				<div class="controls">
 					<label> DNI </label>
-					<input type="text" class="form-control"required data-validation-required-message="Ingrese el dni">				
+					<input type="text" class="form-control"required data-validation-required-message="Ingrese el dni">
+					<p class="help-block"></p>		
 				</div>
 				
 				

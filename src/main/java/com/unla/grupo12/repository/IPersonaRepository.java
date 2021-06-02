@@ -1,7 +1,10 @@
 package com.unla.grupo12.repository;
 
 import com.unla.grupo12.entity.Persona;
+
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.io.Serializable;
@@ -9,6 +12,12 @@ import java.io.Serializable;
 @Repository("personaRepository")
 public interface IPersonaRepository extends JpaRepository<Persona, Serializable> {
 
-
+	//@Query("SELECT p FROM Persona p JOIN FETCH p.permiso WHERE p.persona = (:nombrePersona)")
+	//Persona findByNombrePersonaYPermiso(@Param("nombrePersona") String nombrePersona);
+	
+	Persona findById(Long id);
+	
+	Persona findByPersona(String persona);
+	
 
 }
