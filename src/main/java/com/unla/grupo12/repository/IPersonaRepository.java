@@ -15,9 +15,9 @@ public interface IPersonaRepository extends JpaRepository<Persona, Serializable>
 	//@Query("SELECT p FROM Persona p JOIN FETCH p.permiso WHERE p.persona = (:nombrePersona)")
 	//Persona findByNombrePersonaYPermiso(@Param("nombrePersona") String nombrePersona);
 	
-	Persona findById(Long id);
+	Persona findByIdPersona(int id);
 	
-	Persona findByPersona(String persona);
+	Persona findByDni(long dni);
 	
 
 }

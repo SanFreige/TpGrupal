@@ -10,5 +10,10 @@ public interface IPersonaService {
 	public PersonaModel agregarPersona(PersonaModel personaModel);
 	
 	public List<Persona> listAllPersonas();
+	
+	public PersonaModel findByIdPersona(int id);
+	
+	public PersonaModel findByDni(long dni);
 
+	public List<PersonaModel> listPersonaModel();
 }

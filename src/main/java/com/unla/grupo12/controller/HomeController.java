@@ -6,10 +6,13 @@ import com.unla.grupo12.entity.Perfil;
 import com.unla.grupo12.entity.Usuario;
 import com.unla.grupo12.helpers.ViewRouteHelper;
 import com.unla.grupo12.model.PerfilModel;
+import com.unla.grupo12.model.PersonaModel;
 import com.unla.grupo12.model.UsuarioModel;
 import com.unla.grupo12.service.IPerfilService;
+import com.unla.grupo12.service.IPersonaService;
 import com.unla.grupo12.service.IUsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -42,7 +45,9 @@ public class HomeController {
 	@Autowired
 	private IUsuarioService usuarioService;
 
-	
+	@Autowired
+	@Qualifier("personaService")
+	private IPersonaService personaService;
 
 	@PreAuthorize("hasAnyAuthority('Admin', 'Auditoria')")
 	@GetMapping("/")
@@ -98,5 +103,13 @@ public class HomeController {
 		headers.add("Content-Disposition", "inline; filename=ListaUsuarios.pdf");
 		return ResponseEntity.ok().headers(headers).contentType(MediaType.APPLICATION_PDF)
 				.body(new InputStreamResource(pdf));
+	}
+	
+	@GetMapping("/lista-personas")
+	public ModelAndView listaPersonas() {
+		ModelAndView mov = new ModelAndView(ViewRouteHelper.PERSONAS);
+		List<PersonaModel> list = personaService.listPersonaModel();
+		mov.addObject("listaPersonas", list);
+		return mov;
 	}
 }
