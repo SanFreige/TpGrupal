@@ -10,6 +10,7 @@ public class ViewRouteHelper {
 	public final static String USUARIOS = "home/usuarios";
 	public final static String PERFILES = "home/perfiles";
 	public final static String PERSONAS = "home/listPersona";
+	public final static String ListPERMISOS = "home/listPermisoxPersona";
 	public final static String USUARIOS_AGREGAR = "home/agregarUsuario";
 	public final static String USUARIOS_EDITAR = "home/editarUsuario";
 	public final static String PERFILES_EDITAR = "home/editarPerfil";

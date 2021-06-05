@@ -1,5 +1,8 @@
 package com.unla.grupo12.service.impl;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -24,6 +27,30 @@ public class PermisoImpl implements IPermisoService{
 	@Autowired
 	@Qualifier("permisoConverter")
 	private PermisoConverter permisoConverter;
+
+	@Override
+	public List<PermisoModel> listPermisoModel() {
+		List<PermisoModel> permisoList = new ArrayList<PermisoModel>();
+		permisoList = permisoConverter.listPermisoModel(permisoRepository.findAll());
+		return permisoList;
+	}
+
+	@Override
+	public List<Permiso> traerPermisoxDni(long dni) {
+		List<Permiso> lista = this.listPermisos();
+		List<Permiso> listaporDni = new ArrayList<Permiso>();
+		for(Permiso permiso : lista) {
+			if(permiso.getPedido().getDni() == dni) {
+				listaporDni.add(permiso);
+			}
+		}
+		return listaporDni;
+	}
+
+	@Override
+	public List<Permiso> listPermisos() {
+		return permisoRepository.findAll();
+	}
 	
 	
 

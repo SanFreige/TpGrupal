@@ -76,27 +76,28 @@
 		<table cellpadding="5">
 
 			<thead>
-				<tr>										
+				<tr>
+					<th> Fecha </th>
+					<th> Hasta </th>								
 					<th> Nombre </th>
 					<th> Apellido </th>	
 					<th> Dni </th>					
-					
 				</tr>
 			</thead>
 			<tbody>
-
-				<tr th:each="persona : ${listaPersonas}">									
-					<td> <span th:text="${persona.nombre}" /> </td>
-					<td> <span th:text="${persona.apellido}" /> </td>
-					<td> <span th:text="${persona.dni}" /> </td>
+				<tr th:each="permiso : ${listPermisos}">
+					<td> <span th:text="${permiso.fecha}" /></td>
+					<td> <span th:text="${permiso.desdeHasta[0]}" /></td>
+					<td> <span th:text="${permiso.desdeHasta[1]}" /></td>
+					<td> <span th:text="${permiso.persona.nombre}" /></td>
+					<td> <span th:text="${permiso.persona.apellido}" /></td>
+					<td> <span th:text="${permiso.persona.dni}" /></td>
 				</tr>
-
 			</tbody>
 			<li class="nav-item">
 			</li>
 		</table>
-		<a class="btn btn-primary" th:href="@{/persona/agregarPersona}">Agregar</a>
-		<a class="btn btn-primary" th:href="@{/persona/permisoPersona}" target="_blank"> Ver permisos por persona</a>
+		<a class="btn btn-primary" th:href="@{/persona/agregarPersona}">Agregar persona</a>
 	</div>
 	<!-- /.container -->
 

@@ -6,9 +6,11 @@ import com.unla.grupo12.entity.Perfil;
 import com.unla.grupo12.entity.Usuario;
 import com.unla.grupo12.helpers.ViewRouteHelper;
 import com.unla.grupo12.model.PerfilModel;
+import com.unla.grupo12.model.PermisoModel;
 import com.unla.grupo12.model.PersonaModel;
 import com.unla.grupo12.model.UsuarioModel;
 import com.unla.grupo12.service.IPerfilService;
+import com.unla.grupo12.service.IPermisoService;
 import com.unla.grupo12.service.IPersonaService;
 import com.unla.grupo12.service.IUsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,6 +50,10 @@ public class HomeController {
 	@Autowired
 	@Qualifier("personaService")
 	private IPersonaService personaService;
+	
+	@Autowired
+	@Qualifier("permisoService")
+	private IPermisoService permisoService;
 
 	@PreAuthorize("hasAnyAuthority('Admin', 'Auditoria')")
 	@GetMapping("/")
@@ -110,6 +116,14 @@ public class HomeController {
 		ModelAndView mov = new ModelAndView(ViewRouteHelper.PERSONAS);
 		List<PersonaModel> list = personaService.listPersonaModel();
 		mov.addObject("listaPersonas", list);
+		return mov;
+	}
+	
+	@GetMapping("/lista-permisos")
+	public ModelAndView listaPermisos() {
+		ModelAndView mov = new ModelAndView(ViewRouteHelper.ListPERMISOS);
+		List<PermisoModel> list = permisoService.listPermisoModel();
+		mov.addObject("listPermisos", list);
 		return mov;
 	}
 }
